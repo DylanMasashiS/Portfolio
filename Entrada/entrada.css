@@ -1,0 +1,210 @@
+/* Estilo Global */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+/* Fundo com imagem */
+.container {
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo */
+    align-items: center; /* Centraliza o conteúdo verticalmente */
+    height: 100vh;
+    background-image: url('../Images/coffe.jpg'); /* Substitua pelo caminho da sua imagem */
+    background-size: cover;
+    background-position: center;
+    position: relative; /* Garante que a imagem e outros elementos possam ser posicionados corretamente */
+}
+
+/* Imagem SVG no container */
+.imagem-interna {
+    max-width: 400px; /* Tamanho máximo da imagem */
+    width: 100%; /* Torna a imagem responsiva */
+    height: auto; /* Mantém as proporções */
+    position: absolute; /* Posiciona dentro do container */
+    top: 68.6%; /* Ajusta a posição vertical */
+    left: 87%; /* Ajusta a posição horizontal */
+    transform: translate(-50%, -50%); /* Centraliza a imagem */
+    border-radius: 10px; /* Borda arredondada */
+    z-index: 1; /* Garante que fique acima do fundo */
+}
+
+/* Caixa de mensagens */
+.message-box {
+    text-align: center;
+    line-height: 1.8;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo transparente */
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 80%; /* Deixa a caixa de mensagem responsiva */
+    max-width: 500px; /* Limita a largura máxima */
+    margin: 20px;
+    left: 10%;
+    bottom: 25%;
+    z-index: 2; /* Garante que fique acima da imagem */
+    position: relative;
+    animation: fadeIn 1s;
+}
+
+.message-box p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.message-box button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.message-box button:hover {
+    background-color: #555;
+}
+
+/* Estilo do botão com a imagem */
+#play-button {
+    background: none; /* Remove o fundo do botão */
+    border: 2px solid transparent; /* Começa sem borda visível */
+    padding: 0; /* Remove o padding do botão */
+    cursor: pointer; /* Cursor de ponteiro */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: border-color 0.3s, transform 0.2s ease; /* Transição suave para borda e transformação */
+}
+
+/* Estilos da imagem dentro do botão */
+#play-button img {
+    width: 35px; /* Ajuste o tamanho da imagem */
+    height: 35px; /* Ajuste a altura da imagem */
+    transition: opacity 0.3s, transform 0.2s ease; /* Transição suave para opacidade e transformação */
+}
+
+/* Efeito de hover no botão e imagem */
+#play-button:hover {
+    border-width: 2px;
+}
+
+#play-button:hover img {
+    opacity: 0.8; /* Diminui a opacidade da imagem quando o mouse passa sobre o botão */
+    transform: scale(1.1); /* Aumenta um pouco a imagem no hover */
+}
+
+/* Efeito de clique (pressionado) */
+#play-button:active {
+    transform: scale(0.95); /* Diminui a imagem e o botão ao ser pressionado */
+}
+
+/* Efeito de clique para borda e imagem */
+#play-button:active img {
+    opacity: 1; /* Opacidade total ao ser pressionado */
+}
+
+/* Trocar imagem no hover */
+#play-button:hover img {
+    content: url('../Images/play-buttton-next.png'); /* Substitua pelo caminho da imagem do hover */
+}
+
+/* Animação de transição */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Responsividade para Mobiles (Iphone 12 Pro e Galaxy S20) */
+@media screen and (max-height: 1000px) and (max-width: 500px) {
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Ajuste da caixa de mensagem para telas menores */
+    .message-box {
+        width: 90%; /* Caixa mais larga no mobile */
+        max-width: none; /* Remove a largura máxima */
+        padding: 15px;
+        margin: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        bottom: 25%;
+    }
+
+    /* Ajusta a posição e tamanho da imagem */
+    .imagem-interna {
+        max-width: 500px; /* A imagem vai ocupar 100% da largura */
+        max-height: 500px; /* Limita a altura da imagem */
+        top: 72%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Centraliza a imagem */
+    }
+
+    /* Reduz o tamanho da fonte da mensagem */
+    .message-box p {
+        font-size: 1.2rem;
+    }
+
+    /* Ajuste do botão para telas menores */
+    .message-box button {
+        font-size: 0.9rem;
+    }
+}
+
+/* Responsividade para Tablets e IPads (iPad Pro Referencia)*/
+@media screen and (min-width: 1024px) and (min-height: 1366px){
+
+    .container {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* Ajuste da caixa de mensagem para tablets */
+    .message-box {
+        width: 80%;
+        padding: 20px;
+        max-width: 900px;
+        max-height: 1000px;
+        margin: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        bottom: 12%;
+        left: 35%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* Ajuste da imagem interna */
+    .imagem-interna {
+        max-width: 750px;
+        height: 900px;
+        top: 73.6%;
+        left: 70%;
+        transform: translate(-50%, -50%); /* Centraliza a imagem */
+    }
+
+    /* Reduz o tamanho da fonte da mensagem */
+    .message-box p {
+        font-size: 3rem;
+    }
+
+    /* Estilos da imagem dentro do botão */
+    #play-button img {
+        width: 70px; /* Ajuste o tamanho da imagem */
+        height: 70px; /* Ajuste a altura da imagem */
+    }
+}

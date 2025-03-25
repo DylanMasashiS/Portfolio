@@ -1,0 +1,462 @@
+/* Estilo global */
+body {
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f4f4f4;
+    line-height: 1.6; /* Melhor leitura */
+    color: #333; /* Texto padrão */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+/* Cabeçalho */
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    display: flex;
+    position: sticky;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #333;
+    color: white;
+    flex-shrink: 0; /* Evita que a barra diminua */
+    top: 0; /* Fixa a barra no topo enquanto rola a página */
+}
+
+.sidebar h1 {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.close-icon i {
+    display: none; /* Oculto no desktop */
+    font-size: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Ícone do Menu Hambúrguer - Esconder no Desktop */
+.menu-icon {
+    display: none; /* Oculto no desktop */
+    font-size: 50px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+    color: white;
+}
+/* Navegação */
+nav {
+    display: flex; /* Oculta para dispositivos móveis */
+}
+
+nav.show {
+    display: flex; /* Exibe o menu ao ativar */
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav ul li {
+    margin: 10px 0;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    transition: color 0.3s;
+}
+
+nav ul li a:hover {
+    color: #f4a261;
+}
+
+.profile-pic {
+    width: 150px; /* Tamanho da imagem */
+    height: 150px;
+    border-radius: 50%; /* Deixa a imagem redonda */
+    object-fit: cover; /* Mantém a imagem bem ajustada */
+    margin-top: 20px;
+    border: 3px solid white; /* Adiciona uma borda */
+}
+
+/* Seções do portfólio */
+section {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    flex-direction: column;
+    margin: 50px;
+    background-color: #f4f4f4;
+    border-radius: 8px;
+}
+
+/* Estilo da seção "O que posso fazer por você?" */
+#servicos {
+    font-size: 1.2rem;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #333;
+    color: #f4f4f4;
+    scroll-margin-top: 100px; /* Ajuste para evitar sobreposição */
+}
+
+/* Estilo da seção "Projetos" */
+#projetos {
+    padding: 40px 20px;
+}
+
+.card-image {
+    width: 300px;
+    height: 300px;
+}
+
+#projetos h2 {
+    display: flex;
+    justify-content: center;
+    font-size: 80px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.projeto {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens se ajustem ao espaço */
+    justify-content: center;
+    gap: 20px;
+}
+
+.projeto-card {
+    background-color: #989A91;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 350px; /* Tamanho fixo */
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.projeto-card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.projeto-card h3 {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.projeto-card p {
+    font-size: 1rem;
+    color: #333;
+}
+
+.tags {
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tag {
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: white;
+}
+
+.tag.html {
+    background-color: #E34F26; /* Cor do HTML */
+}
+
+.tag.css {
+    background-color: #1572B6; /* Cor do CSS */
+}
+
+.tag.js {
+    background-color: #F7DF1E; /* Cor do JavaScript */
+    color: black;
+}
+
+.tag.react {
+    background-color: #61DAFB; /* Cor do React */
+    color: black;
+}
+
+.tag.node {
+    background-color: #68A063; /* Cor do Node.js */
+}
+
+.tag.mysql {
+    background-color: #4479A1; /* Cor do MySQL */
+}
+
+/* Estilo da seção "Contato" */
+#contato {
+    padding: 40px 20px;
+    text-align: center;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+}
+
+#contato h2 {
+    font-size: 2rem;
+    color: #333;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin: 20px;
+}
+
+.social-links a {
+    font-size: 2rem;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #f4a261; /* Cor ao passar o mouse */
+}
+
+#curriculo {
+    font-size: 1.5rem;
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #333;
+    color: #f4f4f4;
+}
+
+.curriculo p {
+    color: #f4f4f4;
+}
+
+.btn-curriculo {
+    padding: 15px 30px;
+    font-size: 1rem;
+    color: white;
+    background-color: #333;
+    border-color: #f4f4f4;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 30px;
+    transition: background-color 0.3s;
+}
+
+.btn-curriculo:hover {
+    background-color: #f4a261;
+}
+
+/* Responsividade para Mobiles (Iphone 12 Pro e Galaxy S20) */
+@media screen and (max-height: 1000px) and (max-width: 500px) {
+
+
+    .sidebar {
+        transform: translate(100%); /*Esconde a barra lateral */
+        transition: transform 0.3s ease-in-out;
+        position: fixed;
+        top: 0;
+        gap: 30px;
+        right: 0;
+        width: 70%;
+        height: 110vh;
+        background-color: #333;
+        z-index: 1000;
+    }
+
+    .sidebar.show {
+        transform: translateX(0); /* Mostra a barra lateral */
+    }
+
+    .close-icon i {
+        display: block; /* O botão de fechar aparece apenas no mobile */
+        position: fixed;
+        top: 15px;
+        left: 20px;
+        font-size: 30px;
+        z-index: 1001; /* Garante que o botão de fechar fique acima dos outros elementos */
+        color: #f4f4f4;
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        display: block; /* O ícone de menu aparece apenas no mobile */
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        font-size: 50px;
+        z-index: 10; /* Garante que o ícone fique acima dos outros elementos */
+        color: #333;
+    }
+
+    .nav-menu {
+        display: flex; /* O menu se torna um flexbox quando a classe 'show' é adicionada */
+    }
+
+    .nav-menu.show {
+        display: block; /* O menu se torna visível quando a classe 'show' é adicionada */
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        padding: 10px 0;
+        z-index: 6;
+    }
+
+    .nav-menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+    }
+
+    .nav-menu a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem; /* Ajuste o tamanho da fonte para o mobile */
+        transition: color 0.3s;
+    }
+
+    .nav-menu a:hover {
+        color: #f4a261;
+    }
+
+    /* Overlay (fundo escurecido) */
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); /* Fundo escuro com 50% de opacidade */
+        z-index: 900; /* Fica abaixo do menu */
+        display: none; /* Escondido por padrão */
+    }
+
+    /* Quando o menu estiver aberto, exibe o overlay */
+    .sidebar.show + .overlay {
+        display: block;
+    }
+
+    /* Ajuste para o conteúdo da página */
+    main {
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
+        width: 100vw;
+        padding: 20px;
+    }
+
+    /* Ajuste a disposição da container */
+    .container {
+        flex-direction: column;
+    }
+
+    section {
+        padding: 20px;
+        margin: 0;
+    }
+
+    /* Seção de Serviços */
+    #servicos {
+        margin-top: 80px;
+        font-size: 1.4rem;
+        padding: 50px 20px;
+    }
+
+    /* Seção de Projetos */
+    #projetos {
+        padding: 20px 0;
+    }
+
+    .projeto {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+    }
+
+    #projetos h2 {
+        font-size: 50px;
+    }
+
+    .projeto-card {
+        width: 100%; /* 100% de largura para ocupar toda a tela */
+        padding: 10px;
+    }
+
+    .card-image {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Seção de Contato */
+    #contato {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .social-links a {
+        font-size: 40px;
+    }
+
+    /* Seção de Currículo */
+    #curriculo {
+        font-size: 1.4rem;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .btn-curriculo {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+}
