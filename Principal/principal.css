@@ -337,6 +337,28 @@ section {
     background-color: #f4a261;
 }
 
+/* ::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+} */
+
+.btnTop{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 40px;
+    right: 50px;
+    color: white;
+    font-size: 22px;
+    line-height: 50px;
+    text-align: center;
+    text-decoration: none;
+    background-color: rgb(104, 160, 99 );
+}
+
 /* Responsividade para Mobiles (Iphone 12 Pro e Galaxy S20) */
 @media screen and (max-height: 1000px) and (max-width: 500px) {
 
@@ -488,7 +510,41 @@ section {
         height: auto;
     }
 
-        /* Estilo da seção "Pagamentos" */
+     /* Seção de Descontos */
+     #descontos {
+        padding: 20px 0;
+    }
+
+    .descontos {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+        padding: 20px 15px 20px 0px;
+        color: white;
+        border: 1px solid #68A063;
+    }
+
+    #pacotes h2 {
+        font-size: 25px;
+        margin-right: 16px;
+        color: white;
+        display: flex;
+        justify-content: space-around;
+    }
+
+    .descontos h3{
+        font-size: 30px;
+        justify-content: center;
+    }
+
+    .pacotes-card {
+        width: 80%; /* 100% de largura para ocupar toda a tela */
+        padding: 10px;
+    }
+
+    /* Estilo da seção "Pagamentos" */
     #pagamento {
         padding: 40px 20px;
         text-align: center;
@@ -565,5 +621,10 @@ section {
     .btn-curriculo {
         padding: 10px 20px;
         font-size: 1rem;
+    }
+
+    .btnTop{
+        right: 20px;
+        font-size: 20px;
     }
 }
