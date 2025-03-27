@@ -127,10 +127,15 @@
                         <div>
                             <h4>Landing Page Simples</h4>
                         </div>
-                        <p>Sistema de Cadastro</p>
-                        <p>Páginas Personalizadas</p>
-                        <p class="price">R$ 700</p>
-                        <button onclick="selectPlan('Básico', 700)">Selecionar</button>
+                        <ul>
+                            <li>Páginas Personalizadas</li>
+                            <li>Sistema de Cadastro e Login</li>
+                        </ul>
+                        <div>
+                            <p id="price">De R$700 de R$ 595</p>
+                        </div>
+                        <p class="promo">Desconto de 15%</p>
+                        <button class="select" onclick="selectPlan('Básico', 595)">Selecionar</button>
                     </div>
                     <div class="descontos">
                         <h3>Intermediário</h3>
@@ -150,11 +155,18 @@
                         <p class="promo">Desconto de 10%</p>
                         <button class="select" onclick="selectPlan('Intermediário', 1350)">Selecionar</button>
                     </div>
+
                     <div class="descontos">
                         <h3>Avançado</h3>
-                        <p>Sistema Web Simples</p>
-                        <p class="price">R$ 600</p>
-                        <button onclick="selectPlan('Avançado', 600)">Selecionar</button>
+                        <h4>Aplicativos Mobiles</h4>
+                        <ul>
+                            <li>Sistema Web Simples</li>
+                        </ul>
+                        <div>
+                            <p id="price">De R$ 2000 por R$1900</p>
+                        </div>
+                        <p class="promo">Desconto de 5%</p>
+                        <button class="select"onclick="selectPlan('Avançado', 1900)">Selecionar</button>
                     </div>
             </section>
 
