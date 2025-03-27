@@ -115,21 +115,40 @@
 
             <!--Seção dos pacotes-->
             <section id="pacotes">
-                
-                <h1>Descontos Imperdíveis, Pacotes Incríveis!!</h1>
-                <h2>Escolha seu Pacote</h2>
+
+                <div id="h1">
+                    <h1>Descontos Imperdíveis, Pacotes Incríveis!!</h1>
+                </div>
+
+                    <h2>Escolha seu Pacote!</h2>
                 
                     <div class="descontos">
                         <h3>Básico</h3>
-                        <p>Landing Page Simples</p>
-                        <p class="price">R$ 150</p>
-                        <button onclick="selectPlan('Básico', 150)">Selecionar</button>
+                        <div>
+                            <h4>Landing Page Simples</h4>
+                        </div>
+                        <p>Sistema de Cadastro</p>
+                        <p>Páginas Personalizadas</p>
+                        <p class="price">R$ 700</p>
+                        <button onclick="selectPlan('Básico', 700)">Selecionar</button>
                     </div>
                     <div class="descontos">
                         <h3>Intermediário</h3>
-                        <p>Site Multi-Páginas</p>
-                        <p class="price">R$ 300</p>
-                        <button onclick="selectPlan('Intermediário', 300)">Selecionar</button>
+                        <h4>Homepage Profissional</h4>
+                        <ul>
+                            <li>Páginas Otimizadas</li>
+                            <li>Contatos e Sobre Nós</li>
+                            <li>Versão Escuro e Claro</li>
+                            <li>Páginas Personalizadas</li>
+                            <li>Sistema de Cadastro e Login de Usuários</li>
+                            <li>Sistema de Vendas e Vitrine de Produtos</li>
+                            <li>Filtros e Barra de Pesquisa</li>
+                        </ul>
+                        <div>
+                            <p id="price">De R$1500 por R$1350</p>
+                        </div>
+                        <p class="promo">Desconto de 10%</p>
+                        <button class="select" onclick="selectPlan('Intermediário', 1350)">Selecionar</button>
                     </div>
                     <div class="descontos">
                         <h3>Avançado</h3>
