@@ -485,12 +485,22 @@ section {
         transform: translate(100%); /*Esconde a barra lateral */
         transition: transform 0.3s ease-in-out;
         position: fixed;
+        gap: 0px;
         top: 0;
         right: 0;
         width: 70%;
         height: 110vh;
         background-color: #333;
         z-index: 1000;
+    }
+
+    .sidebar h1{
+        margin: 25px 0px 0px 0px;
+    }
+
+    .profile-pic{
+        width: 150px;
+        height: 150px;
     }
 
     .sidebar.show {
