@@ -30,7 +30,7 @@ h1{
 
 /* Cabeçalho */
 .sidebar {
-    width: 400px;
+    width: 370px;
     height: 100vh;
     display: flex;
     position: sticky;
@@ -38,7 +38,7 @@ h1{
     align-items: center;
     background-color: #333;
     color: white;
-    gap: 40px;
+    gap: 0px;
     flex-shrink: 0; /* Evita que a barra diminua */
     top: 0; /* Fixa a barra no topo enquanto rola a página */
 }
@@ -46,7 +46,7 @@ h1{
 .sidebar h1 {
     font-size: 3rem;
     text-align: center;
-    margin: 150px 0px 100px 0px;
+    margin: 150px 0px 50px 0px;
 }
 
 .close-icon i {
@@ -85,14 +85,10 @@ nav.show {
 nav ul {
     list-style: none;
     padding: 0;
-    margin: 150px 0px 0px 0px;
+    margin: 50px 0px 0px 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-nav ul li {
-    margin: 10px 0;
 }
 
 nav ul li a {
@@ -100,11 +96,10 @@ nav ul li a {
     color: white;
     transition: color 0.3s;
     font-size: 40px;
-    margin: 0px 0px 20px 0px;
+    margin: 0px 0px 40px 0px;
     align-items: center;
     text-align: center;
     display: flex;
-    
 }
 
 nav ul li a:hover {
@@ -126,14 +121,15 @@ section {
     flex: 1;
     padding: 20px;
     flex-direction: column;
-    margin: 50px;
     border-radius: 8px;
 
 }
 
 /* Estilo da seção "O que posso fazer por você?" */
 #servicos {
-    font-size: 2.5rem;
+    font-size: 2rem;
+    width: 500px;
+    margin: 50px 0px 0px 50px;
     padding: 40px 20px;
     text-align: center;
     background-color: #333;
@@ -147,8 +143,8 @@ section {
 }
 
 .card-image {
-    width: 300px;
-    height: 300px;
+    width: 350px;
+    height: 350px;
 }
 
 #projetos h2 {
@@ -164,15 +160,15 @@ section {
     display: flex;
     flex-wrap: wrap; /* Permite que os itens se ajustem ao espaço */
     justify-content: center;
-    gap: 20px;
 }
 
 .projeto-card {
     background-color: #989A91;
     border: 1px solid #ddd;
     border-radius: 8px;
-    width: 350px; /* Tamanho fixo */
+    width: 500px; /* Tamanho fixo */
     padding: 20px;
+    margin: 0px 20px 20px 17px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -336,7 +332,6 @@ section {
     text-align: center;
     display: flex;
     justify-content: space-around;
-    border: 1px solid white;
 }
 
 #pagamento h2{
@@ -368,22 +363,26 @@ section {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin: 0px 0px 52px 0px; 
+    margin: 0px 0px 90px 0px; 
 }
 
 .pix{
     display: flex;
-    justify-content: space-around;
+    margin: 100px 0px 0px 5px;
     flex-direction: column;
 }
 
 .cartao {
     font-size: 80px;
-    margin: 0px 0px 0px 65px;
+    margin: 0px 0px 0px 15px;
+}
+.cartao p{
+    margin: 0px 0px 30px 0px;
 }
 
 .boleto {
-    /* margin-top: 30px; */
+    margin-top: 30px;
+    margin-right: 20px;
     font-size: 65px;
 }
 
@@ -391,7 +390,7 @@ section {
     display: flex;
     justify-content: center;
     text-align: center;
-    margin-bottom: 52px;
+    margin: 20px 0px 52px 0px;
     
 }
 
@@ -402,7 +401,6 @@ section {
     flex-direction: column;
     display: flex;
     justify-content: space-around;
-    border: 1px solid white;
 }
 
 #contato h2 {
@@ -428,10 +426,12 @@ section {
 /* Seção do Curriculo */
 #curriculo {
     font-size: 1.5rem;
+    width: 83%;
     padding: 40px 20px;
     text-align: center;
     background-color: #333;
     color: #f4f4f4;
+    margin: 0px 0px 20px 35px;
 }
 
 .curriculo p {
@@ -630,7 +630,7 @@ section {
     .projeto-card {
         width: 85%; /* 100% de largura para ocupar toda a tela */
         padding: 10px;
-        margin-left: 10px;
+        margin-left: 30px;
     }
 
     .card-image {
