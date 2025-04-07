@@ -615,7 +615,6 @@ section {
 
     #projetos h2 {
         font-size: 50px;
-        margin-right: 16px;
     }
 
     .projeto-card {
@@ -661,7 +660,6 @@ section {
         display: flex;
         justify-content: center;
         text-align: center;
-
         align-self: center;
     }
 
@@ -790,6 +788,13 @@ section {
         background-color: rgb(104, 160, 99, 0.5);
     }
 
+    #contato h2{
+        display: flex;
+        font-size: 35px;
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+
     .social-links {
         display: flex;
         justify-content: center;
@@ -808,9 +813,19 @@ section {
         text-align: center;
     }
 
+    #curriculo h1{
+        font-size: 50px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    #curriculo p{
+        font-size: 30px;
+    }
+
     .btn-curriculo {
         padding: 10px 20px;
-        font-size: 1rem;
+        font-size: 20px;
     }
 
     .btnTop{
