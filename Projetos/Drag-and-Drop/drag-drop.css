@@ -1,35 +1,228 @@
 * {
-    margin: 0px;
-    padding: 0px;
-    font-size: 30px;
-    font-family: 'poppins';
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
 
+body {
+    background-color: #f4f4f4;
+}
+
 .kanban {
-    gap: 10px;
-    padding: 10px;
     display: flex;
-    min-height: 400px;
+    flex-wrap: wrap;
     justify-content: center;
+    padding: 20px;
+    gap: 20px;
+    min-height: 100vh;
 }
 
 .coluna {
-    gap: 10px;
-    display: flex;
+    background-color: #88bdbc;
+    border-radius: 10px;
     padding: 10px;
-    min-width: 200px;
-    border-radius: 5px;
+    min-width: 280px;
+    max-width: 300px;
+    flex: 1;
+    display: flex;
     flex-direction: column;
-    background-color: cadetblue;
+    gap: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .item {
-    padding: 10px;
-    border-radius: 5px;
+    padding: 15px;
+    border-radius: 10px;
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 .dragging {
     opacity: 0.5;
+}
+
+/* TOPO: EMOJI + NOME */
+.tarefa-topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.emoji-wrapper {
+    position: relative;
+}
+
+.emoji-btn {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.emoji-dropdown {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: white;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 5px;
+    display: flex;
+    gap: 5px;
+    z-index: 10;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.emoji-dropdown span {
+    cursor: pointer;
+    font-size: 20px;
+    padding: 4px;
+    transition: background 0.2s;
+}
+
+.emoji-dropdown span:hover {
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.emoji-dropdown.hidden {
+    display: none;
+}
+
+.nome-tarefa-input {
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    flex: 1;
+    outline: none;
+    padding-left: 10px;
+}
+
+/* CONTEÚDO: DATA + DETALHES */
+.tarefa-conteudo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.data-hora {
+    border: 1px solid #ccc;
+    padding: 6px;
+    font-size: 14px;
+    border-radius: 5px;
+    width: 100%;
+}
+
+.detalhes {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 6px;
+    font-size: 14px;
+    resize: vertical;
+    min-height: 60px;
+    width: 100%;
+}
+
+/* BOTÃO ADICIONAR */
+.add-task-btn {
+    align-self: flex-end;
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: white;
+    padding: 5px;
+    transition: opacity 0.3s;
+}
+
+.add-task-btn:hover {
+    opacity: 0.7;
+}
+
+/* SCROLL SUAVE NAS COLUNAS SE NECESSÁRIO */
+.coluna::-webkit-scrollbar {
+    width: 8px;
+}
+.coluna::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+}
+.coluna::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* ----------------------------------- */
+/* 📱 RESPONSIVIDADE */
+/* ----------------------------------- */
+
+/* TABLET (iPad Pro e similares) */
+@media (max-width: 1024px) {
+    .kanban {
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .coluna {
+        flex: 1 1 45%;
+        max-width: 100%;
+    }
+
+    .item {
+        font-size: 15px;
+    }
+
+    .emoji-btn,
+    .emoji-dropdown span {
+        font-size: 22px;
+    }
+}
+
+/* CELULAR */
+@media (max-width: 768px) {
+    .kanban {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .coluna {
+        width: 90%;
+        max-width: 95%;
+    }
+
+    .nome-tarefa-input {
+        font-size: 15px;
+    }
+
+    .data-hora,
+    .detalhes {
+        font-size: 13px;
+    }
+
+    .emoji-btn,
+    .emoji-dropdown span {
+        font-size: 20px;
+    }
+}
+
+/* TELAS MUITO PEQUENAS */
+@media (max-width: 480px) {
+    .coluna {
+        width: 95%;
+    }
+
+    .nome-tarefa-input {
+        font-size: 14px;
+    }
+
+    .data-hora,
+    .detalhes {
+        font-size: 12px;
+    }
 }

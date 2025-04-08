@@ -1,29 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag And Drop - Pegar e Soltar</title>
-    <link rel="stylesheet" href="drag-drop.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Kanban Interativo</title>
+
+  <link rel="stylesheet" href="drag-drop.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-    <div class="kanban">
-        <div class="coluna">
-            <div class="item" draggable="true">Card 1</div>
-            <div class="item" draggable="true">Card 2</div>
-        </div>
-    
-        <div class="coluna">
-            <div class="item" draggable="true">Card 3</div>
-            <div class="item" draggable="true">Card 4</div>
-        </div>
-    
-        <div class="coluna">
-            <div class="item" draggable="true">Card 5</div>
-            <div class="item" draggable="true">Card 6</div>
-        </div>
+
+  <div class="kanban">
+    <div class="coluna">
+      <div class="coluna-titulo" contenteditable="true">Ideias</div>
+      <div class="item" draggable="true">
+        <select class="icon-select">
+          <option value="fas fa-lightbulb" selected>💡</option>
+          <option value="fas fa-spinner">🔄</option>
+          <option value="fas fa-check">✅</option>
+          <option value="fas fa-bug">🐞</option>
+        </select>
+        <span class="icone"><i class="fas fa-lightbulb"></i></span>
+        <input type="time" class="hora" />
+        <button class="detalhes-btn">Detalhes</button>
+      </div>
     </div>
 
-    <script src="drag-drop.js"></script>
+    <div class="coluna">
+      <div class="coluna-titulo" contenteditable="true">Em Andamento</div>
+    </div>
+
+    <div class="coluna">
+      <div class="coluna-titulo" contenteditable="true">Finalizado</div>
+    </div>
+  </div>
+
+  <!-- Modal de observações -->
+  <div class="modal hidden">
+    <div class="modal-content">
+      <h3>Detalhes da Tarefa</h3>
+      <textarea placeholder="Digite suas observações..."></textarea>
+      <button class="fechar-modal">Fechar</button>
+    </div>
+  </div>
+
+  <script src="drag-drop.js"></script>
 </body>
 </html>
