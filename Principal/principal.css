@@ -477,6 +477,88 @@ section {
     background-color: rgb(104, 160, 99 );
 }
 
+/* Notebook  de Tela Pequena*/
+@media screen and (height: 616px) and (width: 1358px) {
+
+    .sidebar h1{
+        font-size: 2rem;
+        margin: 40px 0px 15px 0px;
+    }
+
+    nav ul{
+        margin: 30px 0px 0px 0px;
+    }
+
+    nav ul li a{
+        font-size: 20px;
+        margin: 0px 0px 20px 0px;
+    }
+
+    .profile-pic{
+        width: 150px;
+        height: 150px;
+        margin: 0px;
+    }
+
+    #servicos{
+        width: 85%;
+    }
+
+    .projeto-card{
+        width: 85%;
+        margin: 0px 20px 50px 17px;
+    }
+
+    .card-image{
+        width: 700px;
+        height: 500px;
+    }
+
+    #pacotes h1{
+        margin: 0px;
+        text-align: center;
+        
+    }
+
+    #pagamento h2{
+        font-size: 4rem;
+    }
+
+    .pay-icon{
+        margin: 0px 25px 0px 85px;
+        gap: 25px;
+    }
+
+    .pix{
+        margin: 0px;
+    }
+
+    .pix p{
+        margin: 0px 0px 130px 0px;
+    }
+
+    .cartao{
+        margin: 0px;
+    }
+
+    .cartao p{
+        margin: 0px 0px 30px 0px;
+    }
+
+    .boleto{
+        margin: 0px;
+    }
+
+    .boleto p{
+        margin: 0px 0px 40px;
+    }
+
+    #curriculo{
+        width: 84.5%;
+        margin: 0px 0px 20px 54px;
+    }
+}
+
 /* Responsividade para Mobiles (Iphone 12 Pro e Galaxy S20) */
 @media screen and (max-height: 1000px) and (max-width: 500px) {
 
@@ -844,9 +926,6 @@ section {
     }
 
 
-    /* Notebook  de Tela Pequena*/
-    @media screen and (max-width: 1366px) and (max-height: 768px) {
-       
-    }
+    
     
 }
