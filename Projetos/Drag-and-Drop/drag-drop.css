@@ -1,0 +1,35 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 30px;
+    font-family: 'poppins';
+    box-sizing: border-box;
+}
+
+.kanban {
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    min-height: 400px;
+    justify-content: center;
+}
+
+.coluna {
+    gap: 10px;
+    display: flex;
+    padding: 10px;
+    min-width: 200px;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: cadetblue;
+}
+
+.item {
+    padding: 10px;
+    border-radius: 5px;
+    background-color: white;
+}
+
+.dragging {
+    opacity: 0.5;
+}
