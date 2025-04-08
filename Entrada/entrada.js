@@ -10,53 +10,88 @@ const messages = [
 let currentIndex = 0;
 const messageElement = document.getElementById("message");
 const playButton = document.getElementById("play-button");
-let isTyping = false; // Para controlar se a mensagem está sendo digitada
-let typingIndex = 0; // Controle do índice da letra para digitação
-let typingMessage = ''; // Mensagem atual que está sendo digitada
+const backButton = document.getElementById("back-button");
 
-// Função para digitar a mensagem com requestAnimationFrame
+let isTyping = false;
+let typingIndex = 0;
+let typingMessage = '';
+let typingSpeed = 50; // Velocidade padrão: 50ms entre letras
+let typingFast = false; // Quando clicado de novo, ativa modo rápido
+
+// Função para digitar a mensagem
 function typeMessage(message, callback) {
-    typingMessage = message; // Mensagem a ser digitada
-    typingIndex = 0; // Reseta o índice
-    messageElement.innerHTML = ''; // Limpa a mensagem exibida
+    typingMessage = message;
+    typingIndex = 0;
+    messageElement.innerHTML = '';
+    isTyping = true;
+    typingFast = false;
 
     function type() {
         if (typingIndex < typingMessage.length) {
             messageElement.innerHTML += typingMessage[typingIndex];
             typingIndex++;
-            requestAnimationFrame(type); // Chama novamente no próximo quadro
+
+            // Se o usuário clicou de novo: mostra rápido
+            const delay = typingFast ? 0 : typingSpeed;
+            setTimeout(type, delay);
         } else {
-            if (callback) callback(); // Executa a função de callback, se houver
+            isTyping = false;
+            if (callback) callback();
         }
     }
 
-    requestAnimationFrame(type); // Inicia a digitação
+    type(); // Inicia a digitação
 }
 
-// Exibe a primeira mensagem ao carregar a página
+// Função para mostrar ou esconder o botão de voltar
+function atualizarBotaoVoltar() {
+    if (currentIndex === 0) {
+        backButton.style.display = "none";
+    } else {
+        backButton.style.display = "inline-block";
+    }
+}
+
+// Ao carregar a página
 document.addEventListener("DOMContentLoaded", () => {
     typeMessage(messages[currentIndex]);
+    atualizarBotaoVoltar();
 });
 
-// Evento de clique no botão
+// Botão de avançar
 playButton.addEventListener("click", () => {
     if (isTyping) {
-        // Se a mensagem ainda estiver sendo digitada, exibe toda a mensagem imediatamente
-        messageElement.innerHTML = messages[currentIndex];
-        isTyping = false;
-    } else {
-        // Caso a digitação tenha terminado, avança para a próxima mensagem
-        currentIndex++;
-        if (currentIndex >= messages.length) {
-            currentIndex = 0; // Se passar do final, volta para o início
-            window.location.href = "../Principal/principal.html"; // Redireciona para a página principal
-            return;
-        }
-
-        // Inicia a digitação da nova mensagem
-        isTyping = true;
-        typeMessage(messages[currentIndex], () => {
-            isTyping = false; // Marca que a digitação terminou
-        });
+        typingFast = true; // Ao clicar durante digitação, acelera
+        return;
     }
+
+    currentIndex++;
+    if (currentIndex >= messages.length) {
+        currentIndex = 0;
+        window.location.href = "../Principal/principal.html";
+        return;
+    }
+
+    typeMessage(messages[currentIndex], () => {
+        isTyping = false;
+    });
+
+    atualizarBotaoVoltar();
+});
+
+// Botão de voltar
+backButton.addEventListener("click", () => {
+    if (isTyping) {
+        typingFast = true;
+        return;
+    }
+
+    currentIndex--;
+    if (currentIndex < 0) currentIndex = 0;
+
+    typeMessage(messages[currentIndex], () => {
+        isTyping = false;
+    });
+
+    atualizarBotaoVoltar();
 });

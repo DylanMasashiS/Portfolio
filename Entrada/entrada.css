@@ -72,7 +72,7 @@ body, html {
     background-color: #555;
 }
 
-/* Estilo do botão com a imagem */
+/* Estilo do botão de play com a imagem */
 #play-button {
     background: none; /* Remove o fundo do botão */
     border: 2px solid transparent; /* Começa sem borda visível */
@@ -111,7 +111,56 @@ body, html {
 
 /* Trocar imagem no hover */
 #play-button:hover img {
-    content: url('../Images/play-buttton-next.png'); /* Substitua pelo caminho da imagem do hover */
+    content: url('../Images/Setas-Entrada/play-buttton-next-dark.png'); /* Substitua pelo caminho da imagem do hover */
+}
+
+/* Estilo do botão de voltar com a imagem */
+#back-button {
+    background: none; /* Remove o fundo do botão */
+    border: 2px solid transparent; /* Começa sem borda visível */
+    padding: 0; /* Remove o padding do botão */
+    cursor: pointer; /* Cursor de ponteiro */
+    border-radius: 10px; /* Bordas arredondadas */
+    transition: border-color 0.3s, transform 0.2s ease; /* Transição suave para borda e transformação */
+}
+
+/* Estilos da imagem dentro do botão */
+#back-button img {
+    width: 35px; /* Ajuste o tamanho da imagem */
+    height: 35px; /* Ajuste a altura da imagem */
+    transition: opacity 0.3s, transform 0.2s ease; /* Transição suave para opacidade e transformação */
+}
+
+/* Efeito de hover no botão e imagem */
+#back-button:hover {
+    border-width: 2px;
+}
+
+#back-button:hover img {
+    opacity: 0.8; /* Diminui a opacidade da imagem quando o mouse passa sobre o botão */
+    transform: scale(1.1); /* Aumenta um pouco a imagem no hover */
+}
+
+/* Efeito de clique (pressionado) */
+#back-button:active {
+    transform: scale(0.95); /* Diminui a imagem e o botão ao ser pressionado */
+}
+
+/* Efeito de clique para borda e imagem */
+#back-button:active img {
+    opacity: 1; /* Opacidade total ao ser pressionado */
+}
+
+/* Trocar imagem no hover */
+#back-button:hover img {
+    content: url('../Images/Setas-Entrada/back-button-next-dark.png'); /* Substitua pelo caminho da imagem do hover */
+}
+
+#back-button {
+    transition: opacity 0.3s ease;
+}
+#back-button[style*="display: none"] {
+    opacity: 0;
 }
 
 /* Animação de transição */
@@ -202,8 +251,13 @@ body, html {
         font-size: 3rem;
     }
 
-    /* Estilos da imagem dentro do botão */
+    /* Estilos da imagem dentro dos botões */
     #play-button img {
+        width: 70px; /* Ajuste o tamanho da imagem */
+        height: 70px; /* Ajuste a altura da imagem */
+    }
+
+    #back-button img {
         width: 70px; /* Ajuste o tamanho da imagem */
         height: 70px; /* Ajuste a altura da imagem */
     }
