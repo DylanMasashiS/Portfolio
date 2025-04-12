@@ -15,48 +15,49 @@
     <div class="coluna">
       <section id="inicio">
         <div class="coluna-titulo" contenteditable="true">Ideias</div>
+        <button class="add-task-btn" onclick="criarTarefa(this)">＋</button>
       </section>
-      <div class="item" draggable="true">
-        <input type="datetime" class="hora" />
-        <button class="detalhes-btn" onclick="openModal()">Detalhes</button>
-      </div>
+      <div class="container-itens"></div>
     </div>
   
     <!-- Coluna 2 -->
     <div class="coluna">
       <section id="inicio">
         <div class="coluna-titulo" contenteditable="true">Em Andamento</div>
+        <button class="add-task-btn" onclick="criarTarefa(this)">＋</button>
       </section>
-      <div class="item" draggable="true">
-        <input type="datetime" class="hora" />
-        <button class="detalhes-btn" onclick="openModal()">Detalhes</button>
-      </div>
+      <div class="container-itens"></div>
     </div>
   
     <!-- Coluna 3 -->
     <div class="coluna">
       <section id="inicio">
         <div class="coluna-titulo" contenteditable="true">Finalizado</div>
+        <button class="add-task-btn" onclick="criarTarefa(this)">＋</button>
       </section>
-      <div class="item" draggable="true">
-        <input type="datetime" class="hora" />
-        <button class="detalhes-btn" onclick="openModal()">Detalhes</button>
-      </div>
+      <div class="container-itens"></div>
     </div>
   </div>
   
-    <!-- Modal de observações -->
-    <div class="modal-container">
-      <div class="modal">
-        <h3>Detalhes da Tarefa</h3>
-        <hr/>
-          <textarea>Digite sua observação aqui...</textarea>
-        <div class="salve-btn">
-          <button class="concluido-modal" onclick="closeModal()">Concluído</button>
-          <button class="fechar-modal" onclick="closeModal()">Fechar</button>
-        </div>
+  <!-- Modal de observações -->
+  <div class="modal-container">
+    <div class="modal">
+      <h3>Detalhes da Tarefa</h3>
+      <hr/>
+      <span class="nome-tarefa"></span>
+      <span class="data-hora-tarefa"></span>
+      <div class="detalhes-texto"></div>
+      <div class="salve-btn">
+        <button class="concluido-modal" onclick="closeModal()">Concluído</button>
+        <button class="fechar-modal" onclick="closeModal()">Fechar</button>
       </div>
     </div>
+  </div>
+
+  <!-- Botão de deletar (aparece após salvar a tarefa) -->
+  <div class="deletar-container">
+    <button class="deletar-btn" onclick="deletarTarefa()">Deletar</button>
+  </div>
 
   <script src="drag-drop.js"></script>
 

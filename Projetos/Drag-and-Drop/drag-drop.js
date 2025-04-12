@@ -1,110 +1,87 @@
-const columns = document.querySelectorAll(".coluna");
-const addTaskButtons = document.querySelectorAll(".add-task-btn");
+const addTaskButton = document.querySelector(".add-task-btn"); // Seleciona o botão de adicionar tarefa
+const columns = document.querySelectorAll(".coluna"); // Seleciona as colunas onde as tarefas vão ficar
 
-// Drag and Drop
-document.addEventListener("dragstart", (e) => {
-    e.target.classList.add("dragging");
+// Adiciona evento de clique no botão para adicionar tarefa
+addTaskButton.addEventListener("click", () => {
+    const container = document.querySelector(".container-itens"); // Onde as tarefas serão adicionadas
+    const newTask = createNewTask();
+    container.appendChild(newTask); // Adiciona a nova tarefa à coluna
 });
 
-document.addEventListener("dragend", (e) => {
-    e.target.classList.remove("dragging");
-});
+// Função para criar uma nova tarefa
+function createNewTask() {
+    const task = document.createElement("div");
+    task.classList.add("item");
+    task.setAttribute("draggable", "true");
 
-columns.forEach((column) => {
-    const container = column.querySelector(".container-itens");
-
-    column.addEventListener("dragover", (e) => {
-        e.preventDefault();
-        const dragging = document.querySelector(".dragging");
-        const applyAfter = getNewPosition(container, e.clientY);
-
-        if (applyAfter) {
-            applyAfter.insertAdjacentElement("afterend", dragging);
-        } else {
-            container.appendChild(dragging);
-        }
-    });
-});
-
-function getNewPosition(container, posY) {
-    const cards = container.querySelectorAll(".item:not(.dragging)");
-    let result;
-    for (let refer_card of cards) {
-        const box = refer_card.getBoundingClientRect();
-        const boxCenterY = box.y + box.height / 2;
-        if (posY >= boxCenterY) result = refer_card;
-    }
-    return result;
-}
-
-// Criar tarefa
-function criarItemTarefa() {
-    const item = document.createElement("div");
-    item.classList.add("item");
-    item.setAttribute("draggable", true);
-    item.dataset.id = Date.now();
-
-    item.innerHTML = `
+    task.innerHTML = `
         <div class="tarefa-topo">
-            <div class="emoji-wrapper">
-                <button class="emoji-btn">📌</button>
-                <div class="emoji-dropdown hidden">
-                    <span>📌</span>
-                    <span>📚</span>
-                    <span>💻</span>
-                    <span>✅</span>
-                    <span>📝</span>
-                </div>
-            </div>
             <input class="nome-tarefa-input" type="text" placeholder="Nome da tarefa" />
         </div>
-
         <div class="tarefa-conteudo">
             <input type="datetime-local" class="data-hora" />
             <textarea class="detalhes" placeholder="Detalhes da tarefa..."></textarea>
         </div>
+        <button class="salvar-btn">Salvar</button>
+        
+        <!-- O botão de Excluir NÃO está aqui ainda -->
     `;
 
-    // Emojis
-    const emojiBtn = item.querySelector(".emoji-btn");
-    const emojiDropdown = item.querySelector(".emoji-dropdown");
+    // Função para salvar a tarefa
+    const saveBtn = task.querySelector(".salvar-btn");
+    saveBtn.addEventListener("click", () => {
+        const nomeTarefa = task.querySelector(".nome-tarefa-input").value;
+        const dataHora = task.querySelector(".data-hora").value;
+        const detalhes = task.querySelector(".detalhes").value;
 
-    emojiBtn.addEventListener("click", (e) => {
-        e.stopPropagation();
-        emojiDropdown.classList.toggle("hidden");
-    });
+        // Atualiza a tarefa com os dados preenchidos
+        task.innerHTML = `
+            <div class="tarefa-topo">
+                <span class="nome-tarefa">${nomeTarefa}</span>
+                <span class="data-hora-tarefa">${dataHora}</span>
+                <span class="detalhes-tarefa">${detalhes.split("\n")[0]}</span>
+            </div>
+            <button class="detalhar-btn">Detalhar</button>
+            <button class="delete-btn">Excluir</button> <!-- Agora, o botão Excluir aparece após salvar -->
+        `;
 
-    emojiDropdown.querySelectorAll("span").forEach(span => {
-        span.addEventListener("click", () => {
-            emojiBtn.textContent = span.textContent;
-            emojiDropdown.classList.add("hidden");
+        // Botão de "Detalhar" abre o modal
+        const detailBtn = task.querySelector(".detalhar-btn");
+        detailBtn.addEventListener("click", () => {
+            openModal(nomeTarefa, dataHora, detalhes); // Passa os dados para o modal
+        });
+
+        // Botão de "Excluir" remove a tarefa
+        const deleteBtn = task.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", () => {
+            deleteTask(task); // Chama a função de excluir
         });
     });
 
-    document.addEventListener("click", () => {
-        emojiDropdown.classList.add("hidden");
-    });
-
-    return item;
+    return task;
 }
 
-// Modal
+// Função para abrir o modal
 const modal = document.querySelector(".modal-container");
 
-function openModal() {
-    modal.classList.add("active");
+function openModal(nomeTarefa, dataHora, detalhes) {
+    const modalTarefa = modal.querySelector(".modal .nome-tarefa");
+    const modalDataHora = modal.querySelector(".modal .data-hora-tarefa");
+    const modalDetalhes = modal.querySelector(".modal .detalhes-texto");
+
+    modalTarefa.textContent = nomeTarefa;
+    modalDataHora.textContent = dataHora;
+    modalDetalhes.textContent = detalhes;
+
+    modal.classList.add("active"); // Exibe o modal
 }
 
+// Função para fechar o modal
 function closeModal() {
     modal.classList.remove("active");
 }
 
-// Botão adicionar tarefa
-addTaskButtons.forEach(btn => {
-    btn.addEventListener("click", () => {
-        const column = btn.closest(".coluna");
-        const container = column.querySelector(".container-itens");
-        const tarefa = criarItemTarefa();
-        container.appendChild(tarefa); // Adiciona ao fim da lista
-    });
-});
+// Função para deletar a tarefa
+function deleteTask(task) {
+    task.remove(); // Remove a tarefa do DOM
+}
