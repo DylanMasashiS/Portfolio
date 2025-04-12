@@ -12,7 +12,7 @@ addTaskButton.addEventListener("click", () => {
 function createNewTask() {
     const task = document.createElement("div");
     task.classList.add("item");
-    task.setAttribute("draggable", "true");
+    task.setAttribute("draggable", "true"); // necessário para mover
 
     task.innerHTML = `
         <div class="tarefa-topo">
@@ -23,8 +23,6 @@ function createNewTask() {
             <textarea class="detalhes" placeholder="Detalhes da tarefa..."></textarea>
         </div>
         <button class="salvar-btn">Salvar</button>
-        
-        <!-- O botão de Excluir NÃO está aqui ainda -->
     `;
 
     // Função para salvar a tarefa
@@ -42,19 +40,22 @@ function createNewTask() {
                 <span class="detalhes-tarefa">${detalhes.split("\n")[0]}</span>
             </div>
             <button class="detalhar-btn">Detalhar</button>
-            <button class="delete-btn">Excluir</button> <!-- Agora, o botão Excluir aparece após salvar -->
+            <button class="delete-btn">Excluir</button>
         `;
+
+        // Reaplica o draggable após salvar (IMPORTANTE)
+        task.setAttribute("draggable", "true");
 
         // Botão de "Detalhar" abre o modal
         const detailBtn = task.querySelector(".detalhar-btn");
         detailBtn.addEventListener("click", () => {
-            openModal(nomeTarefa, dataHora, detalhes); // Passa os dados para o modal
+            openModal(nomeTarefa, dataHora, detalhes);
         });
 
         // Botão de "Excluir" remove a tarefa
         const deleteBtn = task.querySelector(".delete-btn");
         deleteBtn.addEventListener("click", () => {
-            deleteTask(task); // Chama a função de excluir
+            deleteTask(task);
         });
     });
 
@@ -73,7 +74,7 @@ function openModal(nomeTarefa, dataHora, detalhes) {
     modalDataHora.textContent = dataHora;
     modalDetalhes.textContent = detalhes;
 
-    modal.classList.add("active"); // Exibe o modal
+    modal.classList.add("active");
 }
 
 // Função para fechar o modal
@@ -83,5 +84,34 @@ function closeModal() {
 
 // Função para deletar a tarefa
 function deleteTask(task) {
-    task.remove(); // Remove a tarefa do DOM
+    task.remove();
 }
+
+// ------------------------------
+// Drag and Drop entre colunas
+// ------------------------------
+
+let draggedTask = null;
+
+document.addEventListener("dragstart", function (e) {
+    if (e.target.classList.contains("item")) {
+        draggedTask = e.target;
+    }
+});
+
+document.addEventListener("dragend", function () {
+    draggedTask = null;
+});
+
+columns.forEach((column) => {
+    column.addEventListener("dragover", function (e) {
+        e.preventDefault();
+    });
+
+    column.addEventListener("drop", function () {
+        if (draggedTask) {
+            const container = this.querySelector(".container-itens");
+            container.appendChild(draggedTask);
+        }
+    });
+});
