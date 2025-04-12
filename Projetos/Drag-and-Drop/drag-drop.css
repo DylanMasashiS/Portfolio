@@ -32,6 +32,16 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+.coluna-titulo {
+    z-index: 2000;
+    text-align: center;
+}
+
+#inicio {
+    margin: 50px;
+    
+}
+
 .item {
     padding: 15px;
     border-radius: 10px;

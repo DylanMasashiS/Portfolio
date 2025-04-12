@@ -1,7 +1,7 @@
 const columns = document.querySelectorAll(".coluna");
 const addTaskButtons = document.querySelectorAll(".add-task-btn");
 
-// Funções de drag and drop
+// Drag and Drop
 document.addEventListener("dragstart", (e) => {
     e.target.classList.add("dragging");
 });
@@ -11,21 +11,23 @@ document.addEventListener("dragend", (e) => {
 });
 
 columns.forEach((column) => {
+    const container = column.querySelector(".container-itens");
+
     column.addEventListener("dragover", (e) => {
         e.preventDefault();
         const dragging = document.querySelector(".dragging");
-        const applyAfter = getNewPosition(column, e.clientY);
+        const applyAfter = getNewPosition(container, e.clientY);
 
         if (applyAfter) {
             applyAfter.insertAdjacentElement("afterend", dragging);
         } else {
-            column.prepend(dragging);
+            container.appendChild(dragging);
         }
     });
 });
 
-function getNewPosition(column, posY) {
-    const cards = column.querySelectorAll(".item:not(.dragging)");
+function getNewPosition(container, posY) {
+    const cards = container.querySelectorAll(".item:not(.dragging)");
     let result;
     for (let refer_card of cards) {
         const box = refer_card.getBoundingClientRect();
@@ -63,7 +65,7 @@ function criarItemTarefa() {
         </div>
     `;
 
-    // Dropdown de emoji
+    // Emojis
     const emojiBtn = item.querySelector(".emoji-btn");
     const emojiDropdown = item.querySelector(".emoji-dropdown");
 
@@ -83,26 +85,26 @@ function criarItemTarefa() {
         emojiDropdown.classList.add("hidden");
     });
 
-    
-
     return item;
 }
 
+// Modal
 const modal = document.querySelector(".modal-container");
 
 function openModal() {
-    modal.classList.add("active")
+    modal.classList.add("active");
 }
 
 function closeModal() {
-    modal.classList.remove("active")
+    modal.classList.remove("active");
 }
 
-// Botões de adicionar tarefa por coluna
+// Botão adicionar tarefa
 addTaskButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         const column = btn.closest(".coluna");
+        const container = column.querySelector(".container-itens");
         const tarefa = criarItemTarefa();
-        column.appendChild(tarefa);
+        container.appendChild(tarefa); // Adiciona ao fim da lista
     });
 });
