@@ -83,7 +83,19 @@ function criarItemTarefa() {
         emojiDropdown.classList.add("hidden");
     });
 
+    
+
     return item;
+}
+
+const modal = document.querySelector(".modal-container");
+
+function openModal() {
+    modal.classList.add("active")
+}
+
+function closeModal() {
+    modal.classList.remove("active")
 }
 
 // Botões de adicionar tarefa por coluna

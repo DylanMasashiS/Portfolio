@@ -14,20 +14,13 @@
     <div class="coluna">
       <div class="coluna-titulo" contenteditable="true">Ideias</div>
       <div class="item" draggable="true">
-        <select class="icon-select">
-          <option value="fas fa-lightbulb" selected>💡</option>
-          <option value="fas fa-spinner">🔄</option>
-          <option value="fas fa-check">✅</option>
-          <option value="fas fa-bug">🐞</option>
-        </select>
-        <span class="icone"><i class="fas fa-lightbulb"></i></span>
-        <input type="time" class="hora" />
-        <button class="detalhes-btn">Detalhes</button>
+        <input type="datetime" class="hora" />
+        <button class="detalhes-btn" onclick="openModal()">Detalhes</button>
       </div>
     </div>
 
     <div class="coluna">
-      <div class="coluna-titulo" contenteditable="true">Em Andamento</div>
+      <div class="coluna-titulo" contenteditable="true">Em Andamento</div>a
     </div>
 
     <div class="coluna">
@@ -36,11 +29,15 @@
   </div>
 
   <!-- Modal de observações -->
-  <div class="modal hidden">
-    <div class="modal-content">
+  <div class="modal-container">
+    <div class="modal">
       <h3>Detalhes da Tarefa</h3>
-      <textarea placeholder="Digite suas observações..."></textarea>
-      <button class="fechar-modal">Fechar</button>
+      <hr/>
+        <textarea>Digite sua observação aqui...</textarea>
+      <div class="salve-btn">
+        <button class="concluido-modal" onclick="closeModal()">Concluído</button>
+        <button class="fechar-modal" onclick="closeModal()">Fechar</button>
+      </div>
     </div>
   </div>
 
