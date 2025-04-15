@@ -7,11 +7,10 @@ function criarTarefa(botao) {
     container.appendChild(newTask);
 }
 
-function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "", cor = "#ffffff") {
+function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
     const task = document.createElement("div");
     task.classList.add("item");
     task.setAttribute("draggable", "true");
-    task.style.backgroundColor = cor; // Aplica a cor inicial
 
     task.innerHTML = `
         <div class="tarefa-topo">
@@ -22,20 +21,22 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "", cor = "#ff
             <textarea class="detalhes" placeholder="Detalhes da tarefa...">${detalhes}</textarea>
         </div>
         <button class="salvar-btn">Salvar</button>
-        <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
+        <input type="color" class="color-picker-item" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
     `;
 
-    const colorPickerLive = task.querySelector(".color-picker-item");
-    colorPickerLive.addEventListener("input", (e) => {
-        task.style.backgroundColor = e.target.value;
-    });
-
     const saveBtn = task.querySelector(".salvar-btn");
+    const colorPicker = task.querySelector(".color-picker-item");
+
+    colorPicker.style.display = "inline-block"; // Mostra o input de cor quando a tarefa é criada
+
     saveBtn.addEventListener("click", () => {
         const nomeTarefa = task.querySelector(".nome-tarefa-input").value;
         const dataHora = task.querySelector(".data-hora").value;
         const detalhes = task.querySelector(".detalhes").value;
-        const cor = task.querySelector(".color-picker-item").value;
+        const corSelecionada = colorPicker.value;
+
+        // Após salvar, esconder o input de cor
+        colorPicker.style.display = "none";
 
         task.innerHTML = `
             <div class="tarefa-topo">
@@ -46,35 +47,38 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "", cor = "#ff
             <button class="detalhar-btn">Detalhar</button>
             <button class="editar-btn">Editar</button>
             <button class="delete-btn">Excluir</button>
-            <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa">
         `;
 
-        task.style.backgroundColor = cor;
+        task.style.backgroundColor = corSelecionada;
         task.setAttribute("draggable", "true");
 
-        task.querySelector(".detalhar-btn").addEventListener("click", () => {
+        const detalharBtn = task.querySelector(".detalhar-btn");
+        detalharBtn.addEventListener("click", () => {
             openModal(nomeTarefa, dataHora, detalhes);
         });
 
-        task.querySelector(".editar-btn").addEventListener("click", () => {
-            const editableTask = createNewTask(nomeTarefa, dataHora, detalhes, cor);
+        const editarBtn = task.querySelector(".editar-btn");
+        editarBtn.addEventListener("click", () => {
+            // Quando editar, mostrar novamente o input de cor
+            const editableTask = createNewTask(nomeTarefa, dataHora, detalhes);
+            editableTask.style.backgroundColor = corSelecionada;
             task.replaceWith(editableTask);
         });
 
-        task.querySelector(".delete-btn").addEventListener("click", () => {
+        const deleteBtn = task.querySelector(".delete-btn");
+        deleteBtn.addEventListener("click", () => {
             deleteTask(task);
         });
+    });
 
-        const colorPicker = task.querySelector(".color-picker-item");
-        colorPicker.addEventListener("input", (e) => {
-            task.style.backgroundColor = e.target.value;
-        });
+    colorPicker.addEventListener("input", (e) => {
+        task.style.backgroundColor = e.target.value;
     });
 
     return task;
 }
 
-// Função para abrir o modal
+// Modal
 const modal = document.querySelector(".modal-container");
 
 function openModal(nomeTarefa, dataHora, detalhes) {
@@ -89,20 +93,15 @@ function openModal(nomeTarefa, dataHora, detalhes) {
     modal.classList.add("active");
 }
 
-// Função para fechar o modal
 function closeModal() {
     modal.classList.remove("active");
 }
 
-// Função para deletar a tarefa
 function deleteTask(task) {
     task.remove();
 }
 
-// ------------------------------
-// Drag and Drop entre colunas
-// ------------------------------
-
+// Drag and Drop
 let draggedTask = null;
 
 document.addEventListener("dragstart", function (e) {
@@ -115,7 +114,6 @@ document.addEventListener("dragend", function () {
     draggedTask = null;
 });
 
-// Função para mudar a cor das colunas
 columns.forEach((column) => {
     const picker = column.querySelector(".color-picker-coluna");
     if (picker) {
