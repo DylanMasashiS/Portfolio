@@ -1,16 +1,17 @@
-const addTaskButton = document.querySelector(".add-task-btn");
 const columns = document.querySelectorAll(".coluna");
 
-addTaskButton.addEventListener("click", () => {
-    const container = document.querySelector(".container-itens");
+function criarTarefa(botao) {
+    const coluna = botao.closest(".coluna");
+    const container = coluna.querySelector(".container-itens");
     const newTask = createNewTask();
     container.appendChild(newTask);
-});
+}
 
-function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
+function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "", cor = "#ffffff") {
     const task = document.createElement("div");
     task.classList.add("item");
     task.setAttribute("draggable", "true");
+    task.style.backgroundColor = cor; // Aplica a cor inicial
 
     task.innerHTML = `
         <div class="tarefa-topo">
@@ -21,13 +22,20 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
             <textarea class="detalhes" placeholder="Detalhes da tarefa...">${detalhes}</textarea>
         </div>
         <button class="salvar-btn">Salvar</button>
+        <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
     `;
+
+    const colorPickerLive = task.querySelector(".color-picker-item");
+    colorPickerLive.addEventListener("input", (e) => {
+        task.style.backgroundColor = e.target.value;
+    });
 
     const saveBtn = task.querySelector(".salvar-btn");
     saveBtn.addEventListener("click", () => {
         const nomeTarefa = task.querySelector(".nome-tarefa-input").value;
         const dataHora = task.querySelector(".data-hora").value;
         const detalhes = task.querySelector(".detalhes").value;
+        const cor = task.querySelector(".color-picker-item").value;
 
         task.innerHTML = `
             <div class="tarefa-topo">
@@ -38,8 +46,10 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
             <button class="detalhar-btn">Detalhar</button>
             <button class="editar-btn">Editar</button>
             <button class="delete-btn">Excluir</button>
+            <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
         `;
 
+        task.style.backgroundColor = cor;
         task.setAttribute("draggable", "true");
 
         task.querySelector(".detalhar-btn").addEventListener("click", () => {
@@ -47,19 +57,24 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
         });
 
         task.querySelector(".editar-btn").addEventListener("click", () => {
-            const editableTask = createNewTask(nomeTarefa, dataHora, detalhes);
-            task.replaceWith(editableTask); // Substitui pelo modo de edição
+            const editableTask = createNewTask(nomeTarefa, dataHora, detalhes, cor);
+            task.replaceWith(editableTask);
         });
 
         task.querySelector(".delete-btn").addEventListener("click", () => {
             deleteTask(task);
+        });
+
+        const colorPicker = task.querySelector(".color-picker-item");
+        colorPicker.addEventListener("input", (e) => {
+            task.style.backgroundColor = e.target.value;
         });
     });
 
     return task;
 }
 
-// Modal
+// Função para abrir o modal
 const modal = document.querySelector(".modal-container");
 
 function openModal(nomeTarefa, dataHora, detalhes) {
@@ -74,15 +89,20 @@ function openModal(nomeTarefa, dataHora, detalhes) {
     modal.classList.add("active");
 }
 
+// Função para fechar o modal
 function closeModal() {
     modal.classList.remove("active");
 }
 
+// Função para deletar a tarefa
 function deleteTask(task) {
     task.remove();
 }
 
-// Drag and Drop
+// ------------------------------
+// Drag and Drop entre colunas
+// ------------------------------
+
 let draggedTask = null;
 
 document.addEventListener("dragstart", function (e) {
@@ -95,7 +115,15 @@ document.addEventListener("dragend", function () {
     draggedTask = null;
 });
 
+// Função para mudar a cor das colunas
 columns.forEach((column) => {
+    const picker = column.querySelector(".color-picker-coluna");
+    if (picker) {
+        picker.addEventListener("input", (e) => {
+            column.style.backgroundColor = e.target.value;
+        });
+    }
+
     column.addEventListener("dragover", function (e) {
         e.preventDefault();
     });

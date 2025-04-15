@@ -27,14 +27,27 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
     gap: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .coluna-titulo {
     z-index: 2000;
     text-align: center;
+}
+
+/* Botão color picker no canto */
+.color-picker-coluna {
+    top: 5px;
+    right: 5px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin: 50px 0px 0px 0px;
 }
 
 #inicio {
@@ -44,6 +57,7 @@ body {
 
 .item {
     padding: 15px;
+    position: relative;
     border-radius: 10px;
     background-color: white;
     display: flex;
@@ -151,7 +165,7 @@ hr {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.5); /* fundo escuro */
+    background-color: rgba(0, 0, 0, 0.5);
     display: none;
     align-items: center;
     justify-content: center;
@@ -176,7 +190,7 @@ hr {
 }
 
 .active .modal {
-    animation: modal .4s;
+    animation: modal 0.4s;
 }
 
 @keyframes modal {
@@ -226,15 +240,16 @@ textarea {
     background-color: brown !important;
 }
 
-/* BOTÃO ADICIONAR */
+/* ✅ Ajustado botão de adicionar */
 .add-task-btn {
     align-self: flex-end;
-    font-size: 20px;
+    font-size: 30px;
     background-color: transparent;
     border: none;
     cursor: pointer;
     color: white;
-    padding: 5px;
+    padding: 10px;
+    margin: 0;
     transition: opacity 0.3s;
 }
 
@@ -252,14 +267,14 @@ textarea {
     padding: 10px 15px;
     border-radius: 5px;
     cursor: pointer;
-    display: none; /* Inicialmente escondido */
+    display: none;
 }
 
 .deletar-btn:hover {
     background-color: darkred;
 }
 
-/* SCROLL SUAVE NAS COLUNAS SE NECESSÁRIO */
+/* SCROLL SUAVE NAS COLUNAS */
 .coluna::-webkit-scrollbar {
     width: 8px;
 }
@@ -273,16 +288,17 @@ textarea {
     background-color: transparent;
 }
 
-/* ----------------------------------- */
+/* ------------------------------ */
 /* 📱 RESPONSIVIDADE */
-/* ----------------------------------- */
+/* ------------------------------ */
 
-/* TABLET (iPad Pro e similares) */
+/* TABLET */
 @media (max-width: 1024px) {
     #kanban {
         flex-direction: row;
         gap: 15px;
         padding: 15px;
+        flex-wrap: wrap;
     }
 
     .coluna {
@@ -330,27 +346,8 @@ textarea {
         font-size: 20px;
     }
 
-    .deletar-btn {
-        font-size: 16px;
-    }
-}
-
-/* TELAS MUITO PEQUENAS */
-@media (max-width: 480px) {
-    .coluna {
-        width: 95%;
-    }
-
-    .nome-tarefa-input {
-        font-size: 14px;
-    }
-
-    .data-hora,
-    .detalhes {
-        font-size: 12px;
-    }
-
-    .deletar-btn {
-        font-size: 14px;
+    .add-task-btn {
+        align-self: flex-end;
+        font-size: 26px;
     }
 }
