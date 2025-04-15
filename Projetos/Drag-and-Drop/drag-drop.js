@@ -46,7 +46,7 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "", cor = "#ff
             <button class="detalhar-btn">Detalhar</button>
             <button class="editar-btn">Editar</button>
             <button class="delete-btn">Excluir</button>
-            <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
+            <input type="color" class="color-picker-item" value="${cor}" title="Escolher cor da tarefa">
         `;
 
         task.style.backgroundColor = cor;

@@ -50,6 +50,18 @@ body {
     margin: 50px 0px 0px 0px;
 }
 
+.color-picker-item{
+    position:absolute; 
+    top:5px; 
+    right:5px; 
+    width:25px; 
+    height:25px; 
+    padding:0; 
+    border:none; 
+    background:none; 
+    cursor:pointer;
+}
+
 #inicio {
     margin: 20px;
     margin-bottom: 30px;
