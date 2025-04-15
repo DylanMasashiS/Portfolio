@@ -1,63 +1,57 @@
-const addTaskButton = document.querySelector(".add-task-btn"); // Seleciona o botão de adicionar tarefa
-const columns = document.querySelectorAll(".coluna"); // Seleciona as colunas onde as tarefas vão ficar
+const addTaskButton = document.querySelector(".add-task-btn");
+const columns = document.querySelectorAll(".coluna");
 
-// Adiciona evento de clique no botão para adicionar tarefa
 addTaskButton.addEventListener("click", () => {
-    const container = document.querySelector(".container-itens"); // Onde as tarefas serão adicionadas
+    const container = document.querySelector(".container-itens");
     const newTask = createNewTask();
-    container.appendChild(newTask); // Adiciona a nova tarefa à coluna
+    container.appendChild(newTask);
 });
 
-// Função para criar uma nova tarefa
-function createNewTask() {
+function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
     const task = document.createElement("div");
     task.classList.add("item");
-    task.setAttribute("draggable", "true"); // necessário para mover
+    task.setAttribute("draggable", "true");
 
     task.innerHTML = `
         <div class="tarefa-topo">
-            <input class="nome-tarefa-input" type="text" placeholder="Nome da tarefa" />
+            <input class="nome-tarefa-input" type="text" value="${nomeTarefa}" placeholder="Nome da tarefa" />
         </div>
         <div class="tarefa-conteudo">
-            <input type="datetime-local" class="data-hora" />
-            <textarea class="detalhes" placeholder="Detalhes da tarefa..."></textarea>
+            <input type="datetime-local" class="data-hora" value="${dataHora}" />
+            <textarea class="detalhes" placeholder="Detalhes da tarefa...">${detalhes}</textarea>
         </div>
         <button class="salvar-btn">Salvar</button>
     `;
 
-    // Função para salvar a tarefa
     const saveBtn = task.querySelector(".salvar-btn");
     saveBtn.addEventListener("click", () => {
         const nomeTarefa = task.querySelector(".nome-tarefa-input").value;
         const dataHora = task.querySelector(".data-hora").value;
         const detalhes = task.querySelector(".detalhes").value;
 
-        // Formata a data
-        const dataFormatada = formatarData(dataHora);
-
-        // Atualiza a tarefa com os dados preenchidos
         task.innerHTML = `
             <div class="tarefa-topo">
                 <span class="nome-tarefa">${nomeTarefa}</span>
-                <span class="data-hora-tarefa">${dataFormatada}</span>
+                <span class="data-hora-tarefa">${dataHora}</span>
                 <span class="detalhes-tarefa">${detalhes.split("\n")[0]}</span>
             </div>
             <button class="detalhar-btn">Detalhar</button>
+            <button class="editar-btn">Editar</button>
             <button class="delete-btn">Excluir</button>
         `;
 
-        // Reaplica o draggable após salvar (IMPORTANTE)
         task.setAttribute("draggable", "true");
 
-        // Botão de "Detalhar" abre o modal
-        const detailBtn = task.querySelector(".detalhar-btn");
-        detailBtn.addEventListener("click", () => {
-            openModal(nomeTarefa, dataFormatada, detalhes);
+        task.querySelector(".detalhar-btn").addEventListener("click", () => {
+            openModal(nomeTarefa, dataHora, detalhes);
         });
 
-        // Botão de "Excluir" remove a tarefa
-        const deleteBtn = task.querySelector(".delete-btn");
-        deleteBtn.addEventListener("click", () => {
+        task.querySelector(".editar-btn").addEventListener("click", () => {
+            const editableTask = createNewTask(nomeTarefa, dataHora, detalhes);
+            task.replaceWith(editableTask); // Substitui pelo modo de edição
+        });
+
+        task.querySelector(".delete-btn").addEventListener("click", () => {
             deleteTask(task);
         });
     });
@@ -65,18 +59,7 @@ function createNewTask() {
     return task;
 }
 
-// Formata a data de "aaaa-mm-ddThh:mm" para "dd/mm/aaaa hh:mm"
-function formatarData(dataStr) {
-    const data = new Date(dataStr);
-    const dia = String(data.getDate()).padStart(2, '0');
-    const mes = String(data.getMonth() + 1).padStart(2, '0');
-    const ano = data.getFullYear();
-    const horas = String(data.getHours()).padStart(2, '0');
-    const minutos = String(data.getMinutes()).padStart(2, '0');
-    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
-}
-
-// Função para abrir o modal
+// Modal
 const modal = document.querySelector(".modal-container");
 
 function openModal(nomeTarefa, dataHora, detalhes) {
@@ -91,20 +74,15 @@ function openModal(nomeTarefa, dataHora, detalhes) {
     modal.classList.add("active");
 }
 
-// Função para fechar o modal
 function closeModal() {
     modal.classList.remove("active");
 }
 
-// Função para deletar a tarefa
 function deleteTask(task) {
     task.remove();
 }
 
-// ------------------------------
-// Drag and Drop entre colunas
-// ------------------------------
-
+// Drag and Drop
 let draggedTask = null;
 
 document.addEventListener("dragstart", function (e) {
