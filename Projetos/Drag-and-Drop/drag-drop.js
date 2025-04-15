@@ -32,11 +32,14 @@ function createNewTask() {
         const dataHora = task.querySelector(".data-hora").value;
         const detalhes = task.querySelector(".detalhes").value;
 
+        // Formata a data
+        const dataFormatada = formatarData(dataHora);
+
         // Atualiza a tarefa com os dados preenchidos
         task.innerHTML = `
             <div class="tarefa-topo">
                 <span class="nome-tarefa">${nomeTarefa}</span>
-                <span class="data-hora-tarefa">${dataHora}</span>
+                <span class="data-hora-tarefa">${dataFormatada}</span>
                 <span class="detalhes-tarefa">${detalhes.split("\n")[0]}</span>
             </div>
             <button class="detalhar-btn">Detalhar</button>
@@ -49,7 +52,7 @@ function createNewTask() {
         // Botão de "Detalhar" abre o modal
         const detailBtn = task.querySelector(".detalhar-btn");
         detailBtn.addEventListener("click", () => {
-            openModal(nomeTarefa, dataHora, detalhes);
+            openModal(nomeTarefa, dataFormatada, detalhes);
         });
 
         // Botão de "Excluir" remove a tarefa
@@ -60,6 +63,17 @@ function createNewTask() {
     });
 
     return task;
+}
+
+// Formata a data de "aaaa-mm-ddThh:mm" para "dd/mm/aaaa hh:mm"
+function formatarData(dataStr) {
+    const data = new Date(dataStr);
+    const dia = String(data.getDate()).padStart(2, '0');
+    const mes = String(data.getMonth() + 1).padStart(2, '0');
+    const ano = data.getFullYear();
+    const horas = String(data.getHours()).padStart(2, '0');
+    const minutos = String(data.getMinutes()).padStart(2, '0');
+    return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
 }
 
 // Função para abrir o modal
