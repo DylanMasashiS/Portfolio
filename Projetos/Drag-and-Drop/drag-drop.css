@@ -33,33 +33,61 @@ body {
 }
 
 .coluna-titulo {
-    z-index: 2000;
+    max-width: 280px;
+    max-height: 100px;
+    font-size: 25px;
     text-align: center;
 }
 
-/* Botão color picker no canto */
+/* Modificado o botão color picker para ter o input arredondado */
 .color-picker-coluna {
     top: 5px;
-    right: 5px;
+    right: 15px;
     width: 25px;
     height: 25px;
     padding: 0;
     border: none;
     background: none;
     cursor: pointer;
-    margin: 50px 0px 0px 0px;
+    margin: 0px;
 }
 
-.color-picker-item{
-    position:absolute; 
-    top:5px; 
-    right:5px; 
-    width:25px; 
-    height:25px; 
-    padding:0; 
-    border:none; 
-    background:none; 
-    cursor:pointer;
+.color-picker-item {
+    position: absolute; 
+    top: 15px; 
+    right: 15px; 
+    width: 25px; 
+    height: 25px; 
+    padding: 0; 
+    border: none; 
+    background: none; 
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+/* Ajustes no input color para borda arredondada */
+input[type="color"] {
+    border: 1px solid black;
+    border-radius: 15px; /* Borda arredondada do input */
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: none;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+/* Estilo interno para navegadores WebKit */
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+    border-radius: 8px; /* Arredondamento da amostra de cor */
 }
 
 #inicio {
@@ -75,6 +103,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    margin: 20px 0px 20px 0px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
@@ -139,6 +168,7 @@ body {
     flex: 1;
     outline: none;
     padding-left: 10px;
+    padding-top: 20px;
 }
 
 /* CONTEÚDO: DATA + DETALHES */

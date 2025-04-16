@@ -1,5 +1,22 @@
 const columns = document.querySelectorAll(".coluna");
 
+// Limita o título da coluna a 20 caracteres
+document.querySelectorAll(".coluna-titulo").forEach((titulo) => {
+    titulo.addEventListener("input", () => {
+        const maxChars = 40;
+        if (titulo.textContent.length > maxChars) {
+            titulo.textContent = titulo.textContent.slice(0, maxChars);
+            // Move o cursor para o final
+            const range = document.createRange();
+            const sel = window.getSelection();
+            range.selectNodeContents(titulo);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+        }
+    });
+});
+
 function criarTarefa(botao) {
     const coluna = botao.closest(".coluna");
     const container = coluna.querySelector(".container-itens");
@@ -14,20 +31,20 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
 
     task.innerHTML = `
         <div class="tarefa-topo">
-            <input class="nome-tarefa-input" type="text" value="${nomeTarefa}" placeholder="Nome da tarefa" />
+            <input class="nome-tarefa-input" type="text" value="${nomeTarefa}" placeholder="Nome da tarefa" maxlength="30" />
         </div>
         <div class="tarefa-conteudo">
             <input type="datetime-local" class="data-hora" value="${dataHora}" />
             <textarea class="detalhes" placeholder="Detalhes da tarefa...">${detalhes}</textarea>
         </div>
         <button class="salvar-btn">Salvar</button>
-        <input type="color" class="color-picker-item" title="Escolher cor da tarefa" style="position:absolute; top:5px; right:5px; width:25px; height:25px; padding:0; border:none; background:none; cursor:pointer;">
+        <input type="color" class="color-picker-item" title="Escolher cor da tarefa">
     `;
 
     const saveBtn = task.querySelector(".salvar-btn");
     const colorPicker = task.querySelector(".color-picker-item");
 
-    colorPicker.style.display = "inline-block"; // Mostra o input de cor quando a tarefa é criada
+    colorPicker.style.display = "inline-block";
 
     saveBtn.addEventListener("click", () => {
         const nomeTarefa = task.querySelector(".nome-tarefa-input").value;
@@ -35,7 +52,6 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
         const detalhes = task.querySelector(".detalhes").value;
         const corSelecionada = colorPicker.value;
 
-        // Após salvar, esconder o input de cor
         colorPicker.style.display = "none";
 
         task.innerHTML = `
@@ -59,7 +75,6 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
 
         const editarBtn = task.querySelector(".editar-btn");
         editarBtn.addEventListener("click", () => {
-            // Quando editar, mostrar novamente o input de cor
             const editableTask = createNewTask(nomeTarefa, dataHora, detalhes);
             editableTask.style.backgroundColor = corSelecionada;
             task.replaceWith(editableTask);
