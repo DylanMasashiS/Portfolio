@@ -111,10 +111,13 @@ input[type="color"]::-webkit-color-swatch {
     opacity: 0.5;
 }
 
+
+
 /* TOPO: EMOJI + NOME */
 .tarefa-topo {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
     gap: 10px;
 }

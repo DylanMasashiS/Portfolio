@@ -54,10 +54,13 @@ function createNewTask(nomeTarefa = "", dataHora = "", detalhes = "") {
 
         colorPicker.style.display = "none";
 
+        // Formatar a data para o formato pt-BR
+        const dataFormatada = new Date(dataHora).toLocaleDateString('pt-BR'); // Exemplo: 25/04/2025
+
         task.innerHTML = `
             <div class="tarefa-topo">
                 <span class="nome-tarefa">${nomeTarefa}</span>
-                <span class="data-hora-tarefa">${dataHora}</span>
+                <span class="data-hora-tarefa">${dataFormatada}</span>  <!-- Data formatada aqui -->
                 <span class="detalhes-tarefa">${detalhes.split("\n")[0]}</span>
             </div>
             <button class="detalhar-btn">Detalhar</button>
