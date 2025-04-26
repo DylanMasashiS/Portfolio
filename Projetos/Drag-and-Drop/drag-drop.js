@@ -151,3 +151,75 @@ columns.forEach((column) => {
         }
     });
 });
+
+// Alternar Tema Claro e Escuro
+const toggleThemeButton = document.querySelector("#toggle-theme");
+
+// Carregar tema salvo ou usar tema claro como padrão
+function loadTheme() {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+        document.body.classList.add(savedTheme);
+        const icon = toggleThemeButton.querySelector("i");
+        if (savedTheme === "dark-theme") {
+            icon.classList.replace("fa-moon", "fa-sun");
+        } else {
+            icon.classList.replace("fa-sun", "fa-moon");
+        }
+    } else {
+        document.body.classList.add("light-theme");
+        const icon = toggleThemeButton.querySelector("i");
+        icon.classList.replace("fa-moon", "fa-sun");
+    }
+}
+
+function toggleTheme() {
+    const body = document.body;
+
+    // Alterna entre os temas
+    if (body.classList.contains("dark-theme")) {
+        body.classList.replace("dark-theme", "light-theme");
+        localStorage.setItem("theme", "light-theme");
+    } else {
+        body.classList.replace("light-theme", "dark-theme");
+        localStorage.setItem("theme", "dark-theme");
+    }
+
+    const icon = toggleThemeButton.querySelector("i");
+
+    if (body.classList.contains("dark-theme")) {
+        // Tema escuro
+        body.style.backgroundColor = "#121212";
+        body.style.color = "#FFFFFF";
+        document.querySelectorAll("input, textarea").forEach(input => {
+            input.style.backgroundColor = "#333";
+            input.style.color = "#FFF";
+        });
+
+        document.querySelectorAll("input[type='color']").forEach(input => {
+            input.value = "#121212";
+        });
+
+        icon.classList.replace("fa-moon", "fa-sun");
+    } else {
+        // Tema claro
+        body.style.backgroundColor = "#FFFFFF";
+        body.style.color = "#000000";
+        document.querySelectorAll("input, textarea").forEach(input => {
+            input.style.backgroundColor = "#FFF";
+            input.style.color = "#000";
+        });
+
+        document.querySelectorAll("input[type='color']").forEach(input => {
+            input.value = "#FFFFFF";
+        });
+
+        icon.classList.replace("fa-sun", "fa-moon");
+    }
+}
+
+// Carregar tema ao iniciar
+loadTheme();
+
+// Ação do botão para alternar tema
+toggleThemeButton.addEventListener("click", toggleTheme);

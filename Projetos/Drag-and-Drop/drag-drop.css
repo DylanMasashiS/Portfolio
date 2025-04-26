@@ -5,10 +5,19 @@
     box-sizing: border-box;
 }
 
+/* Tema claro */
 body {
     background-color: #f4f4f4;
+    color: #333;
 }
 
+/* Tema escuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #f4f4f4;
+}
+
+/* Kanban */
 #kanban {
     display: flex;
     flex-wrap: nowrap;
@@ -18,8 +27,9 @@ body {
     min-height: 100vh;
 }
 
+/* Colunas */
 .coluna {
-    background-color: #88bdbc;
+    background-color: #5d6d7085;
     border-radius: 10px;
     padding: 10px;
     min-width: 280px;
@@ -32,6 +42,12 @@ body {
     position: relative;
 }
 
+/* Tema escuro: cor das colunas */
+body.dark-mode .coluna {
+    background-color: #1f1f1f;
+}
+
+/* Ajuste no título da coluna */
 .coluna-titulo {
     max-width: 280px;
     max-height: 100px;
@@ -39,7 +55,7 @@ body {
     text-align: center;
 }
 
-/* Modificado o botão color picker para ter o input arredondado */
+/* Botão do color picker */
 .color-picker-coluna {
     top: 5px;
     right: 15px;
@@ -52,24 +68,25 @@ body {
     margin: 0px;
 }
 
+/* Cor do item colorido */
 .color-picker-item {
-    position: absolute; 
-    top: 15px; 
-    right: 15px; 
-    width: 25px; 
-    height: 25px; 
-    padding: 0; 
-    border: none; 
-    background: none; 
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    background: none;
     cursor: pointer;
     border: 1px solid black;
     border-radius: 50%;
 }
 
-/* Ajustes no input color para borda arredondada */
+/* Input color */
 input[type="color"] {
-    border: 1px solid black;
-    border-radius: 15px; /* Borda arredondada do input */
+    border: 2px solid #5d6d7085;
+    border-radius: 15px;
     padding: 0;
     width: 20px;
     height: 20px;
@@ -80,16 +97,27 @@ input[type="color"] {
     outline: none;
 }
 
-/* Estilo interno para navegadores WebKit */
+/* Estilo para navegadores WebKit */
 input[type="color"]::-webkit-color-swatch-wrapper {
     padding: 0;
 }
 
 input[type="color"]::-webkit-color-swatch {
     border: none;
-    border-radius: 8px; /* Arredondamento da amostra de cor */
+    border-radius: 8px;
 }
 
+/* Tema claro */
+body:not(.dark-mode) input[type="color"] {
+    background-color: #ffffff; /* Garantir fundo branco no tema claro */
+}
+
+/* Tema escuro */
+body.dark-mode input[type="color"] {
+    background-color: #333333; /* Fundo escuro no tema escuro */
+}
+
+/* Botões e containers */
 #inicio {
     margin: 20px;
     margin-bottom: 30px;
@@ -107,19 +135,19 @@ input[type="color"]::-webkit-color-swatch {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.dragging {
-    opacity: 0.5;
+/* Tema escuro: cor do item */
+body.dark-mode .item {
+    background-color: #333;
+    color: #f4f4f4;
 }
 
-
-
-/* TOPO: EMOJI + NOME */
+/* Tarefa */
 .tarefa-topo {
     display: flex;
-    align-items: center;
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
+    color: #727a7c;
 }
 
 .emoji-wrapper {
@@ -148,6 +176,12 @@ input[type="color"]::-webkit-color-swatch {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
 
+/* Tema escuro: cor do emoji dropdown */
+body.dark-mode .emoji-dropdown {
+    background: #333;
+    border: 1px solid #444;
+}
+
 .emoji-dropdown span {
     cursor: pointer;
     font-size: 20px;
@@ -166,15 +200,16 @@ input[type="color"]::-webkit-color-swatch {
 
 .nome-tarefa-input {
     border: none;
-    background: transparent;
+    /* background: transparent; */
     font-size: 16px;
     flex: 1;
     outline: none;
     padding-left: 10px;
     padding-top: 20px;
+    margin: 30px 0px 0px 0px;
 }
 
-/* CONTEÚDO: DATA + DETALHES */
+/* Data e detalhes da tarefa */
 .tarefa-conteudo {
     display: flex;
     flex-direction: column;
@@ -187,6 +222,13 @@ input[type="color"]::-webkit-color-swatch {
     font-size: 14px;
     border-radius: 5px;
     width: 100%;
+}
+
+/* Tema escuro: cor da data */
+body.dark-mode .data-hora {
+    border: 1px solid #555;
+    background-color: #333;
+    color: #f4f4f4;
 }
 
 .detalhes-btn {
@@ -204,6 +246,7 @@ hr {
     border-top: 1px solid lightgray;
 }
 
+/* Modal */
 .modal-container {
     position: fixed;
     top: 0;
@@ -228,6 +271,12 @@ hr {
     max-height: 90vh;
     overflow-y: auto;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Tema escuro: cor do modal */
+body.dark-mode .modal {
+    background-color: #2a2a2a;
+    color: #f4f4f4;
 }
 
 .active {
@@ -262,6 +311,13 @@ textarea {
     box-sizing: border-box;
 }
 
+/* Tema escuro: cor da textarea */
+body.dark-mode textarea {
+    border: 1px solid #555;
+    background-color: #333;
+    color: #f4f4f4;
+}
+
 .salve-btn {
     display: flex;
     justify-content: space-between;
@@ -285,7 +341,7 @@ textarea {
     background-color: brown !important;
 }
 
-/* ✅ Ajustado botão de adicionar */
+/* Botão de adicionar */
 .add-task-btn {
     align-self: flex-end;
     font-size: 30px;
@@ -302,7 +358,7 @@ textarea {
     opacity: 0.7;
 }
 
-/* NOVO BOTÃO DE DELETAR */
+/* Novo botão de deletar */
 .deletar-btn {
     align-self: center;
     font-size: 18px;
@@ -319,7 +375,7 @@ textarea {
     background-color: darkred;
 }
 
-/* SCROLL SUAVE NAS COLUNAS */
+/* Scroll suave nas colunas */
 .coluna::-webkit-scrollbar {
     width: 8px;
 }
@@ -333,11 +389,9 @@ textarea {
     background-color: transparent;
 }
 
-/* ------------------------------ */
-/* 📱 RESPONSIVIDADE */
-/* ------------------------------ */
+/* Responsividade */
 
-/* TABLET */
+/* Tablet */
 @media (max-width: 1024px) {
     #kanban {
         flex-direction: row;
@@ -365,34 +419,32 @@ textarea {
     }
 }
 
-/* CELULAR */
+/* Celular */
 @media (max-width: 768px) {
     #kanban {
         flex-direction: column;
-        align-items: center;
+        padding: 10px;
     }
 
     .coluna {
-        width: 90%;
-        max-width: 95%;
+        max-width: 100%;
+        margin-bottom: 10px;
     }
 
-    .nome-tarefa-input {
-        font-size: 15px;
+    .coluna-titulo {
+        font-size: 20px;
     }
 
-    .data-hora,
-    .detalhes {
-        font-size: 13px;
+    .item {
+        font-size: 14px;
     }
 
     .emoji-btn,
     .emoji-dropdown span {
-        font-size: 20px;
+        font-size: 18px;
     }
 
-    .add-task-btn {
-        align-self: flex-end;
-        font-size: 26px;
+    .deletar-btn {
+        font-size: 14px;
     }
 }
