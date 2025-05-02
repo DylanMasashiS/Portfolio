@@ -1,6 +1,7 @@
 export const combos = [
     {
-      imagem: "../Imagens/feijoada.jpg", // <-- ESSE TAMBÉM É IMPORTANTE!      
+      imagemCardapio: "Imagens/feijoada-combo.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/feijoada-combo.jpg",        // usado em detalhes.html      
       codigo: "combo-feijoada",  // Código único para identificar o produto na URL
       nome: "Combo Feijoada",
       preco: "R$ 40,00",

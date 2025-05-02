@@ -7,22 +7,19 @@
   <link rel="stylesheet" href="cardapio.css" />
 </head>
 <body>
-  <div class="topbar">
-    <div class="profile">
-      <img src="perfil.jpg" alt="Perfil">
-      <span>Olá, Usuário</span>
-    </div>
-    <div class="cart">
-      <a href="#">🛒 Carrinho</a>
-    </div>
-  </div>
-
   <header>
     <h1>Delícias do Chef</h1>
     <nav>
-      <a href="#hero">Início</a>
-      <a href="#categorias">Categorias</a>
-      <a href="#menu">Cardápio</a>
+      <div class="topbar">
+        <a href="#hero">Início</a>
+        <div class="cart">
+          <a href="#">🛒 Carrinho</a>
+        </div>
+          <div class="profile">
+            <img src="perfil.jpg" alt="Perfil">
+            <span>Olá, Usuário</span>
+          </div>
+      </div>
     </nav>
   </header>
 
@@ -50,7 +47,7 @@
   </section>
 
   <footer>
-    <p>&copy; 2025 Cardápio Digital. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Delícias do Chef. Todos os direitos reservados.</p>
   </footer>
 
   <script type="module" src="cardapio.js"></script> <!-- Carrega o cardapio.js -->

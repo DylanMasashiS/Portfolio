@@ -45,7 +45,7 @@ function exibirProdutos(categoria) {
     divProduto.classList.add("produto");
 
     divProduto.innerHTML = `
-      <img src="${produto.imagemCardapio}" alt="${produto.nome}" style="max-width: 150px;" />
+      <img src="${produto.imagemCardapio}" alt="${produto.nome}";" />
       <h3>${produto.nome}</h3>
 
       <p>

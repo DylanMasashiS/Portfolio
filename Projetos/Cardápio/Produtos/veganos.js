@@ -1,6 +1,7 @@
 export const veganos = [
-    {
-      imagem: "../Imagens/feijoada.jpg", // <-- ESSE TAMBÉM É IMPORTANTE!      
+    {  
+      imagemCardapio: "Imagens/hamburguer-vegano.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/hamburguer-vegano.jpg",        // usado em detalhes.html   
       codigo: "hamburguer-vegano",  // Código único para identificar o produto na URL
       nome: "Hambúrguer Vegano",
       preco: "R$ 18,00",
@@ -10,8 +11,9 @@ export const veganos = [
       vegano: true,
       descricao: "Saboroso hambúrguer de grão-de-bico com molho vegano."
     },
-    {
-      imagem: "../Imagens/feijoada.jpg", // <-- ESSE TAMBÉM É IMPORTANTE!      
+    { 
+      imagemCardapio: "Imagens/salada-quinoa.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/salada-quinoa.jpg",        // usado em detalhes.html   
       codigo: "salada-quinoa",  // Código único para identificar o produto na URL
       nome: "Salada de Quinoa",
       preco: "R$ 14,00",
@@ -22,7 +24,8 @@ export const veganos = [
       descricao: "Uma salada refrescante e saudável, rica em proteínas."
     },
     {
-      imagem: "../Imagens/feijoada.jpg", // <-- ESSE TAMBÉM É IMPORTANTE!      
+      imagemCardapio: "Imagens/tropeiro-vegano.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/tropeiro-vegano.jpg",        // usado em detalhes.html    
       codigo: "tropeiro-vegano",  // Código único para identificar o produto na URL
       nome: "Feijão Tropeiro Vegano",
       preco: "R$ 22,00",
