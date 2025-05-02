@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Delícias do Chef</title>
+  <link rel="stylesheet" href="cardapio.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="profile">
+      <img src="perfil.jpg" alt="Perfil">
+      <span>Olá, Usuário</span>
+    </div>
+    <div class="cart">
+      <a href="#">🛒 Carrinho</a>
+    </div>
+  </div>
+
+  <header>
+    <h1>Delícias do Chef</h1>
+    <nav>
+      <a href="#hero">Início</a>
+      <a href="#categorias">Categorias</a>
+      <a href="#menu">Cardápio</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+    <h2>Bem-vindo ao nosso cardápio!</h2>
+    <a class="btn-whatsapp" href="https://wa.me/seunumero" target="_blank">Peça pelo WhatsApp</a>
+  </section>
+
+  <section id="categorias">
+    <h2>Categorias</h2>
+    <ul class="categoria-lista">
+      <li><a onclick="exibirProdutos('entradas')">Entradas</a></li>
+      <li><a onclick="exibirProdutos('saladas')">Saladas</a></li>
+      <li><a onclick="exibirProdutos('bebidas')">Bebidas</a></li>
+      <li><a onclick="exibirProdutos('principais')">Pratos Principais</a></li>
+      <li><a onclick="exibirProdutos('veganos')">Veganos</a></li>
+      <li><a onclick="exibirProdutos('combos')">Combos</a></li>
+      <li><a onclick="exibirProdutos('sobremesas')">Sobremesas</a></li>
+    </ul>
+  </section>
+
+  <section id="menu">
+    <h2>Cardápio</h2>
+    <div class="cardapio" id="produtos"></div> <!-- Aqui os produtos serão exibidos -->
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Cardápio Digital. Todos os direitos reservados.</p>
+  </footer>
+
+  <script type="module" src="cardapio.js"></script> <!-- Carrega o cardapio.js -->
+</body>
+</html>
