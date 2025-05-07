@@ -16,12 +16,12 @@ export const saladas = [
       imagemDetalhes: "../Imagens/salada-maionese.jpg",        // usado em detalhes.html      
       codigo: "salada-maionese",  // Código único para identificar o produto na URL
       nome: "Salada de Maionese",
-      preco: "R$ 10,00",
-      ingredientes: "Folhas verdes, tomate, pepino, molho vegano",
-      alergias: "Sem glúten",
-      calorias: "120 kcal",
-      vegano: true,
-      descricao: "Uma salada saudável e completamente vegana."
+      preco: "R$ 18,00",
+      ingredientes: "Batata, cenoura, maionese, ervilha",
+      alergias: "Ovos",
+      calorias: "320 kcal",
+      vegano: false,
+      descricao: "Salada cremosa de batata com legumes e maionese."
     }
   ];
   

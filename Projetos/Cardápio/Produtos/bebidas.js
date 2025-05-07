@@ -4,60 +4,60 @@ export const bebidas = [
       imagemDetalhes: "../Imagens/guarana-antarctica.jpg",        // usado em detalhes.html     
       codigo: "guarana-antarctica",  // Código único para identificar o produto na URL
       nome: "Guaraná Antarctica",
-      preco: "R$ 5,00",
-      ingredientes: "Água carbonatada, açúcar, corantes",
-      alergias: "Glúten",
-      calorias: "200 kcal",
+      preco: "R$ 6,00",
+      ingredientes: "Água gaseificada, extrato de guaraná, açúcar",
+      alergias: "Nenhuma",
+      calorias: "140 kcal",
       vegano: true,
-      descricao: "Refresco gaseificado."
+      descricao: "Refrigerante brasileiro com sabor de guaraná."
     },
     {
       imagemCardapio: "Imagens/coca-cola.jpg",           // usado em cardapio.html
       imagemDetalhes: "../Imagens/coca-cola.jpg",        // usado em detalhes.html         
       codigo: "coca-cola",  // Código único para identificar o produto na URL
       nome: "Coca Cola",
-      preco: "R$ 5,00",
-      ingredientes: "Água carbonatada, açúcar, corantes",
-      alergias: "Glúten",
-      calorias: "200 kcal",
+      preco: "R$ 6,00",
+      ingredientes: "Água gaseificada, açúcar, cafeína, corante caramelo IV",
+      alergias: "Nenhuma",
+      calorias: "150 kcal",
       vegano: true,
-      descricao: "Refresco gaseificado."
+      descricao: "Refrigerante tradicional com sabor inconfundível."
     },
     {
       imagemCardapio: "Imagens/Orange-Squeeze.jpg",           // usado em cardapio.html
       imagemDetalhes: "../Imagens/Orange-Squeeze.jpg",        // usado em detalhes.html          
       codigo: "orange-squeeze",  // Código único para identificar o produto na URL
       nome: "Olipop - Orange Squeeze",
-      preco: "R$ 5,00",
-      ingredientes: "Água carbonatada, açúcar, corantes",
-      alergias: "Glúten",
-      calorias: "200 kcal",
+      preco: "R$ 10,00",
+      ingredientes: "Água com gás, suco de laranja, fibras prebióticas, extrato natural",
+      alergias: "Nenhuma",
+      calorias: "45 kcal",
       vegano: true,
-      descricao: "Refresco gaseificado."
+      descricao: "Bebida funcional com sabor cítrico de laranja."
     },
     {
       imagemCardapio: "Imagens/strawberry-vanilla.jpg",           // usado em cardapio.html
       imagemDetalhes: "../Imagens/strawberry-vanilla.jpg",        // usado em detalhes.html       
       codigo: "strawberry-vanilla",  // Código único para identificar o produto na URL
       nome: "Olipop - Strawberry Vanilla",
-      preco: "R$ 5,00",
-      ingredientes: "Água carbonatada, açúcar, corantes",
-      alergias: "Glúten",
-      calorias: "200 kcal",
+      preco: "R$ 10,00",
+      ingredientes: "Água com gás, morango, baunilha natural, fibras prebióticas",
+      alergias: "Nenhuma",
+      calorias: "35 kcal",
       vegano: true,
-      descricao: "Refresco gaseificado."
+      descricao: "Refrigerante prebiótico com sabor de morango e baunilha."
     },
     { 
       imagemCardapio: "Imagens/tropical-pinapple.jpg",           // usado em cardapio.html
       imagemDetalhes: "../Imagens/tropical-pinapple.jpg",        // usado em detalhes.html     
       codigo: "tropical-pineapple",  // Código único para identificar o produto na URL
       nome: "Olipop - Tropical Pinapple",
-      preco: "R$ 5,00",
-      ingredientes: "Água carbonatada, açúcar, corantes",
-      alergias: "Glúten",
-      calorias: "200 kcal",
+      preco: "R$ 10,00",
+      ingredientes: "Água com gás, abacaxi, manga, fibras prebióticas",
+      alergias: "Nenhuma",
+      calorias: "50 kcal",
       vegano: true,
-      descricao: "Refresco gaseificado."
+      descricao: "Refrigerante natural e leve com sabor tropical de abacaxi."
     },
     {
       imagemCardapio: "Imagens/suco-laranja.jpg",           // usado em cardapio.html

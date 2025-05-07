@@ -16,12 +16,12 @@ export const sobremesas = [
       imagemDetalhes: "../Imagens/pudim.jpg",        // usado em detalhes.html       
       codigo: "pudim",  // Código único para identificar o produto na URL
       nome: "Pudim",
-      preco: "R$ 4,00",
-      ingredientes: "Leite condensado, chocolate, granulado",
-      alergias: "Leite",
-      calorias: "150 kcal",
+      preco: "R$ 12,00",
+      ingredientes: "Leite condensado, ovos, leite, açúcar",
+      alergias: "Ovos, Laticínios",
+      calorias: "300 kcal",
       vegano: false,
-      descricao: "Delicioso brigadeiro de chocolate."
+      descricao: "Pudim tradicional com calda de caramelo."
     }
   ];
   

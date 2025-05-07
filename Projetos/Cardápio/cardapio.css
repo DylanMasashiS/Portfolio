@@ -14,11 +14,11 @@ body {
 
 /* TOPO */
 .topbar {
+  gap: 3.5rem;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 1rem;
-  align-items: center;
   /* background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
 }
@@ -26,18 +26,17 @@ body {
 .profile {
   /* display: flex; */
   align-items: center;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
-.profile img {
-  width: 40px;
-  height: 40px;
+.profile i {
+  width: 25px;
+  height: 25px;
   border-radius: 50%;
   object-fit: cover;
 }
 
 .cart a {
-  font-size: 1.2rem;
   text-decoration: none;
   color: white;
   font-weight: bold;
@@ -48,17 +47,44 @@ body {
   color: #ff7f50;
 }
 
+.logo{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.logo h1{
+  flex-wrap: nowrap;
+  display: flex;
+  margin: 0px 0px 0px 50px;
+  align-items: center;
+  font-weight: 100;
+  font-size: 50px;
+  font-family: 'Marguerite', sans-serif;                                             
+}
+
+.logo img{
+  width: 100px;
+  height: 100px;
+  z-index: 3000;
+  color: #333;
+}
+
 /* Header */
 header {
   background-color: #ff7f50;
   color: white;
   padding: 2rem;
   text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 nav a {
-  margin: 0 1rem;
+  font-size: 20px;
   color: white;
   text-decoration: none;
   font-weight: bold;
@@ -165,6 +191,20 @@ img {
   height: 250px;
   border-radius: 10px;
   margin-bottom: 1rem;
+}
+
+.produto {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 1rem;
+  background: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.produto:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
 
 .item h3 {

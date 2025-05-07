@@ -34,6 +34,18 @@ export const veganos = [
       calorias: "450 kcal",
       vegano: true,
       descricao: "Feijão tropeiro preparado sem produtos de origem animal."
-    }
+    },
+    {
+      imagemCardapio: "Imagens/ratatouille.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/ratatouille.jpg",        // usado em detalhes.html    
+      codigo: "ratatouille",  // Código único para identificar o produto na URL
+      nome: "Ratatouille",
+      preco: "R$ 28,00",
+      ingredientes: "Abobrinha, berinjela, tomate, cebola, pimentão",
+      alergias: "Nenhuma",
+      calorias: "250 kcal",
+      vegano: true,
+      descricao: "Prato francês à base de legumes grelhados e temperos aromáticos."
+    },
   ];
   
