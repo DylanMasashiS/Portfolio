@@ -22,6 +22,30 @@ export const sobremesas = [
       calorias: "300 kcal",
       vegano: false,
       descricao: "Pudim tradicional com calda de caramelo."
-    }
+    },
+    {
+      imagemCardapio: "Imagens/cheesecake-vegano.jpg",
+      imagemDetalhes: "../Imagens/cheesecake-vegano.jpg",
+      codigo: "cheesecake-vegano",
+      nome: "Cheesecake Vegano",
+      preco: "R$ 20,00",
+      ingredientes: "Castanha de caju, leite vegetal, tâmaras, morango, óleo de coco",
+      alergias: "Oleaginosas",
+      calorias: "400 kcal",
+      vegano: true,
+      descricao: "Cheesecake sem lactose e sem ovos, feito com ingredientes 100% vegetais."
+    },
+    {
+      imagemCardapio: "Imagens/sorvete-acai.jpg",
+      imagemDetalhes: "../Imagens/sorvete-acai.jpg",
+      codigo: "sorvete-acai",
+      nome: "Sorvete de Açaí",
+      preco: "R$ 15,00",
+      ingredientes: "Polpa de açaí, banana, xarope de guaraná",
+      alergias: "Nenhuma",
+      calorias: "350 kcal",
+      vegano: true,
+      descricao: "Sorvete cremoso de açaí, 100% natural e vegano."
+    }        
   ];
   

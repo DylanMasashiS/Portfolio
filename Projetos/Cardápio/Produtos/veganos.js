@@ -11,29 +11,17 @@ export const veganos = [
       vegano: true,
       descricao: "Saboroso hambúrguer de grão-de-bico com molho vegano."
     },
-    { 
-      imagemCardapio: "Imagens/salada-quinoa.jpg",           // usado em cardapio.html
-      imagemDetalhes: "../Imagens/salada-quinoa.jpg",        // usado em detalhes.html   
-      codigo: "salada-quinoa",  // Código único para identificar o produto na URL
-      nome: "Salada de Quinoa",
-      preco: "R$ 14,00",
-      ingredientes: "Quinoa, abacate, pepino, tomate, molho de limão",
-      alergias: "Nenhuma",
-      calorias: "220 kcal",
-      vegano: true,
-      descricao: "Uma salada refrescante e saudável, rica em proteínas."
-    },
     {
-      imagemCardapio: "Imagens/tropeiro-vegano.jpg",           // usado em cardapio.html
-      imagemDetalhes: "../Imagens/tropeiro-vegano.jpg",        // usado em detalhes.html    
-      codigo: "tropeiro-vegano",  // Código único para identificar o produto na URL
-      nome: "Feijão Tropeiro Vegano",
-      preco: "R$ 22,00",
-      ingredientes: "Feijão, tofu, arroz integral, couve, alho",
+      imagemCardapio: "Imagens/pizza-vegana.jpg",
+      imagemDetalhes: "../Imagens/pizza-vegana.jpg",
+      codigo: "pizza-vegana",
+      nome: "Pizza Vegana",
+      preco: "R$ 32,00",
+      ingredientes: "Molho de tomate, manjericão, azeitona, brócolis, berinjela e batata",
       alergias: "Glúten",
-      calorias: "450 kcal",
+      calorias: "620 kcal",
       vegano: true,
-      descricao: "Feijão tropeiro preparado sem produtos de origem animal."
+      descricao: "Pizza leve e saborosa com vegetais frescos e massa fina."
     },
     {
       imagemCardapio: "Imagens/ratatouille.jpg",           // usado em cardapio.html
@@ -47,5 +35,17 @@ export const veganos = [
       vegano: true,
       descricao: "Prato francês à base de legumes grelhados e temperos aromáticos."
     },
+    {
+      imagemCardapio: "Imagens/macarrao-pesto-vegano.jpg",
+      imagemDetalhes: "../Imagens/macarrao-pesto-vegano.jpg",
+      codigo: "macarrao-pesto-vegano",
+      nome: "Macarrão ao Pesto Vegano",
+      preco: "R$ 28,00",
+      ingredientes: "Macarrão sem ovos, manjericão, castanha-de-caju, alho, azeite e limão",
+      alergias: "Glúten, Oleaginosas",
+      calorias: "520 kcal",
+      vegano: true,
+      descricao: "Massa ao molho pesto vegano, aromático e cremoso, feito com castanhas e manjericão fresco."
+    }    
   ];
   

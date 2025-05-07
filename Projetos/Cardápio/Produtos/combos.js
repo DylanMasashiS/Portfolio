@@ -1,15 +1,16 @@
 export const combos = [
     {
-      imagemCardapio: "Imagens/combo-feijoada-refri.jpg",           // usado em cardapio.html
-      imagemDetalhes: "../Imagens/combo-feijoada-refri.jpg",        // usado em detalhes.html      
-      codigo: "combo-feijoada-refri",  // Código único para identificar o produto na URL
-      nome: "Combo Feijoada + Refri",
-      preco: "R$ 40,00",
-      ingredientes: "Feijoada + Arroz + Farofa",
-      alergias: "Glúten",
-      calorias: "700 kcal",
+      imagemCardapio: "Imagens/combo-pizza-fritas.jpg",           // usado em cardapio.html
+      imagemDetalhes: "../Imagens/combo-pizza-fritas.jpg",        // usado em detalhes.html      
+      codigo: "combo-pizza-fritas",  // Código único para identificar o produto na URL
+      nome: "Combo Pizza + Fritas",
+      preco: "R$ 35,00",
+      ingredientes: "Pizza de queijo + Batata frita",
+      alergias: "Glúten, Lactose",
+      calorias: "850 kcal",
       vegano: false,
-      descricao: "Combo com feijoada e acompanhamentos."
+      descricao: "Combo com pizza (Qualquer sabor) e porção de batata frita."
+
     },
     {
       imagemCardapio: "Imagens/sushi-vegano.jpg",           // usado em cardapio.html

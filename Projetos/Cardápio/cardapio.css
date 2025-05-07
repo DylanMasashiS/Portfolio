@@ -214,12 +214,6 @@ img {
   margin: 1rem 0;
 }
 
-.produto input{
-  width: 50px;
-  height: 35px;
-  display: flex;
-}
-
 .produto p,
 .produto button {
   margin-bottom: 1rem;
@@ -228,11 +222,29 @@ img {
 .linha-carrinho {
   display: flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
+  justify-content: center;
 }
 
 .linha-carrinho input {
-  width: 60px;
+  width: 50px;
+  height: 30px;
+  margin-left: 155px;
+}
+
+.linha-carrinho button {
+  background-color: #28a745;     /* Verde tipo 'sucesso' */
+  color: white;                  /* Texto branco */
+  border: none;                  /* Sem borda */
+  border-radius: 8px;            /* Cantos arredondados */
+  padding: 10px 16px;            /* Espaçamento interno */
+  font-size: 14px;
+  cursor: pointer;              /* Mãozinha no hover */
+  transition: background-color 0.3s;
+}
+
+.linha-carrinho button:hover {
+  background-color: #218838;     /* Tom mais escuro ao passar o mouse */
 }
 
 .item h3 {

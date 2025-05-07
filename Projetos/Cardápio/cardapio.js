@@ -50,7 +50,7 @@ function exibirProdutos(categoria) {
 
       <p>
         <a href="Detalhes/detalhes.html?codigo=${produto.codigo}">
-          Aperte para mais informações sobre o produto
+          Aperte aqui para mais informações
         </a>
       </p>
 

@@ -1,0 +1,108 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f8f8f8;
+    color: #333;
+    transition: background-color 0.5s ease;
+  }
+  
+  #detalhes-produto {
+    max-width: 800px;
+    margin: auto;
+    background-color: #ffffffdd;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  #detalhes-produto img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 20px;
+  }
+  
+  #detalhes-produto h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+  
+  #detalhes-produto p {
+    margin: 10px 0;
+    line-height: 1.6;
+    font-size: 1rem;
+  }
+  
+  #detalhes-produto p strong {
+    color: #555;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .buttons button {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background-color: #333;
+    color: white;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons button:hover {
+    background-color: #555;
+  }
+  
+  /* Media Queries para Responsividade */
+  
+  @media (max-width: 768px) {
+    #detalhes-produto {
+      padding: 20px;
+    }
+  
+    #detalhes-produto h2 {
+      font-size: 1.6rem;
+    }
+  
+    #detalhes-produto p {
+      font-size: 0.95rem;
+    }
+  
+    .buttons {
+      flex-direction: column;
+    }
+  
+    .buttons button {
+      width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    body {
+      padding: 10px;
+    }
+  
+    #detalhes-produto {
+      padding: 16px;
+    }
+  
+    #detalhes-produto h2 {
+      font-size: 1.4rem;
+    }
+  
+    #detalhes-produto p {
+      font-size: 0.9rem;
+    }
+  
+    .buttons button {
+      font-size: 0.95rem;
+    }
+  }
+  
