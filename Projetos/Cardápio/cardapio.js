@@ -56,14 +56,12 @@ function exibirProdutos(categoria) {
 
       <p><strong>Preço:</strong> ${produto.preco}</p>
 
-      <!-- Botões -->
-      <button onclick="adicionarAoCarrinho('${produto.codigo}', document.getElementById('quantidade-${produto.codigo}').value)">
-        Adicionar ao Carrinho
-      </button>
-      
-      <!-- Campo de Quantidade -->
-      <label for="quantidade-${produto.codigo}">Quantidade:</label>
-      <input type="number" id="quantidade-${produto.codigo}" name="quantidade" value="1" min="1" />
+      <div class="linha-carrinho">
+        <button onclick="adicionarAoCarrinho('${produto.codigo}', document.getElementById('quantidade-${produto.codigo}').value)">
+          Adicionar ao Carrinho
+        </button>
+        <input type="number" id="quantidade-${produto.codigo}" name="quantidade" value="1" min="1" />
+      </div>
     `;
 
     container.appendChild(divProduto);
