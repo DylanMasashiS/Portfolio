@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Moderno</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+
+  <!-- Sidebar -->
+  <aside class="w-64 bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md">
+    <div class="text-xl font-bold">Meu Perfil</div>
+    <nav class="space-y-4">
+      <a href="#" class="block">Mensagens</a>
+      <a href="#" class="block">Configurações</a>
+      <button onclick="toggleTheme()">Alternar Tema</button>
+      <a href="#" class="block">Recibos de Vendas</a>
+      <a href="#" class="block text-red-500">Sair</a>
+    </nav>
+  </aside>
+
+  <!-- Conteúdo Principal -->
+  <main class="flex-1 p-6 overflow-y-auto grid grid-cols-3 gap-6">
+
+    <!-- Gráfico principal -->
+    <section class="col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+      <div class="flex justify-between mb-2">
+        <h2 class="text-lg font-semibold">Resumo de Vendas</h2>
+        <select id="graphSelect" class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-2 py-1 rounded">
+          <option>Melhores Funcionários</option>
+          <option>Melhores Vendedores</option>
+          <option>Departamentos que Mais Vendem</option>
+          <option>Online vs Presencial</option>
+        </select>
+      </div>
+      <canvas id="mainChart" height="120"></canvas>
+    </section>
+
+    <!-- Calendário -->
+    <section class="col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold mb-2">Agenda do Gerente</h2>
+      <ul class="space-y-2">
+        <li>📅 Reunião de equipe - 10/05</li>
+        <li>📅 Apresentação de resultados - 12/05</li>
+        <li>📅 Entrevista RH - 14/05</li>
+      </ul>
+    </section>
+
+    <!-- Gráfico de pizza -->
+    <section class="col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+      <h2 class="text-lg font-semibold mb-2">Renda e Gastos</h2>
+      <canvas id="pieChart" height="120"></canvas>
+    </section>
+
+    <!-- Área do crachá -->
+    <section class="col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow min-h-[180px]">
+      <h2 class="text-lg font-semibold mb-2">Funcionários - Ponto</h2>
+      <ul class="space-y-2">
+        <li>✅ João passou o crachá</li>
+        <li>✅ Maria passou o crachá</li>
+        <li>⏳ Pedro ainda não registrou</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script>
+    // Alternar Tema Claro/Escuro
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+    }
+
+    // Chart de barra
+    const mainChart = new Chart(document.getElementById('mainChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Fulano', 'Ciclano', 'Beltrano'],
+        datasets: [{
+          label: 'Vendas',
+          data: [30, 50, 40],
+          backgroundColor: 'rgba(59, 130, 246, 0.7)'
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+
+    // Chart de pizza
+    const pieChart = new Chart(document.getElementById('pieChart'), {
+      type: 'pie',
+      data: {
+        labels: ['Energia', 'Água', 'Cozinha', 'Limpeza', 'Papelaria'],
+        datasets: [{
+          data: [500, 200, 300, 150, 100],
+          backgroundColor: [
+            '#60A5FA', '#34D399', '#FBBF24', '#F87171', '#A78BFA'
+          ]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
+
+</body>
+</html>
