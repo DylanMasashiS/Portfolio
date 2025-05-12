@@ -5,13 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard Moderno</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
 
-  <!-- Sidebar -->
-  <aside class="w-64 bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md">
+  <!-- Sidebar Desktop -->
+  <aside class="hidden md:block w-64 bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md">
     <div class="text-xl font-bold">Meu Perfil</div>
+    <nav class="space-y-4">
+      <a href="#" class="block">Mensagens</a>
+      <a href="#" class="block">Configurações</a>
+      <button onclick="toggleTheme()">Alternar Tema</button>
+      <a href="#" class="block">Recibos de Vendas</a>
+      <a href="#" class="block text-red-500">Sair</a>
+    </nav>
+  </aside>
+
+  <!-- Menu Mobile: botão ☰ -->
+  <button onclick="toggleMenu()" class="fixed top-4 left-4 z-50 md:hidden bg-white dark:bg-gray-800 p-2 rounded shadow">
+    ☰
+  </button>
+
+  <!-- Sidebar Mobile Flutuante -->
+  <aside id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md transform -translate-x-full transition-transform duration-300 md:hidden z-40">
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold">Meu Perfil</div>
+      <button onclick="toggleMenu()" class="text-xl">✖</button>
+    </div>
     <nav class="space-y-4">
       <a href="#" class="block">Mensagens</a>
       <a href="#" class="block">Configurações</a>
@@ -25,7 +46,7 @@
   <main class="flex-1 p-6 overflow-y-auto grid grid-cols-3 gap-6">
 
     <!-- Gráfico principal -->
-    <section class="col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+    <section class="col-span-3 md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
       <div class="flex justify-between mb-2">
         <h2 class="text-lg font-semibold">Resumo de Vendas</h2>
         <select id="graphSelect" class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-2 py-1 rounded">
@@ -39,7 +60,7 @@
     </section>
 
     <!-- Calendário -->
-    <section class="col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+    <section class="col-span-3 md:col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
       <h2 class="text-lg font-semibold mb-2">Agenda do Gerente</h2>
       <ul class="space-y-2">
         <li>📅 Reunião de equipe - 10/05</li>
@@ -49,13 +70,18 @@
     </section>
 
     <!-- Gráfico de pizza -->
-    <section class="col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+    <section class="col-span-3 md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow flex flex-col items-center justify-center gap-4">
       <h2 class="text-lg font-semibold mb-2">Renda e Gastos</h2>
-      <canvas id="pieChart" height="120"></canvas>
+      <div class="flex items-center justify-around gap-10">
+        <canvas id="pieChart" class="max-w-[120px] max-h-[120px] self-start" width="120" height="120"></canvas>
+      
+        <!-- Legendas em duas colunas -->
+        <div id="pieChartLegend" class="grid grid-cols-2 gap-x-6 text-sm"></div>
+      </div>
     </section>
 
     <!-- Área do crachá -->
-    <section class="col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow min-h-[180px]">
+    <section class="col-span-3 md:col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow min-h-[180px]">
       <h2 class="text-lg font-semibold mb-2">Funcionários - Ponto</h2>
       <ul class="space-y-2">
         <li>✅ João passou o crachá</li>
@@ -63,48 +89,7 @@
         <li>⏳ Pedro ainda não registrou</li>
       </ul>
     </section>
-
+  <script src="dashboard.js"></script>
   </main>
-
-  <script>
-    // Alternar Tema Claro/Escuro
-    function toggleTheme() {
-      document.documentElement.classList.toggle('dark');
-    }
-
-    // Chart de barra
-    const mainChart = new Chart(document.getElementById('mainChart'), {
-      type: 'bar',
-      data: {
-        labels: ['Fulano', 'Ciclano', 'Beltrano'],
-        datasets: [{
-          label: 'Vendas',
-          data: [30, 50, 40],
-          backgroundColor: 'rgba(59, 130, 246, 0.7)'
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
-
-    // Chart de pizza
-    const pieChart = new Chart(document.getElementById('pieChart'), {
-      type: 'pie',
-      data: {
-        labels: ['Energia', 'Água', 'Cozinha', 'Limpeza', 'Papelaria'],
-        datasets: [{
-          data: [500, 200, 300, 150, 100],
-          backgroundColor: [
-            '#60A5FA', '#34D399', '#FBBF24', '#F87171', '#A78BFA'
-          ]
-        }]
-      },
-      options: {
-        responsive: true
-      }
-    });
-  </script>
-
 </body>
 </html>
