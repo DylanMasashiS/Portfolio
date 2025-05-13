@@ -6,7 +6,8 @@ function toggleTheme() {
 // Alternar visibilidade do menu mobile
 function toggleMobileMenu() {
   const mobileMenu = document.getElementById('mobileMenu');
-  mobileMenu.classList.toggle('hidden');
+  mobileMenu.classList.toggle('transform'); // Alterna a classe de transição do menu
+  mobileMenu.classList.toggle('-translate-x-full'); // Alterna a visibilidade do menu
 }
 
 // Chart de barra
@@ -94,4 +95,40 @@ legendLabels.forEach((label, index) => {
     ${label}
   `;
   legendContainer.appendChild(item);
+});
+
+// Inicialização do FullCalendar com JSON local
+document.addEventListener('DOMContentLoaded', function () {
+  const calendarEl = document.getElementById('calendar');
+
+  fetch('eventos.json')
+    .then(response => response.json())
+    .then(events => {
+      const calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        height: 350,
+        events: events,
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,listWeek'
+        },
+        eventColor: '#3B82F6', // azul Tailwind
+      });
+      calendar.render();
+    })
+    .catch(error => {
+      console.error('Erro ao carregar eventos:', error);
+    });
+});
+
+// Evento para abrir e fechar a sidebar mobile (hamburguer)
+document.addEventListener('DOMContentLoaded', () => {
+  const hamburger = document.querySelector('.hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  
+  // Modificar para usar a função toggleMobileMenu()
+  hamburger.addEventListener('click', () => {
+    toggleMobileMenu(); // Usando a função de toggle para abrir/fechar o menu
+  });
 });
