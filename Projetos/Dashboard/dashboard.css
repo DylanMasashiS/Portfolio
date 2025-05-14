@@ -1,4 +1,10 @@
 /* styles.css */
+:root {
+  --fc-button-bg-color: #2c3e50;
+  --fc-button-text-color: #fff;
+  --fc-event-bg-color: #3788d8;
+  --fc-today-bg-color: rgba(255, 220, 40, 0.15);
+}
 
 /* Estrutura geral */
 body {
