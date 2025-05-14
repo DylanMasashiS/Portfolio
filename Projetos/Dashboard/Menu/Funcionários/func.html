@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funcionários</title>
+    <!-- Chart.js/ Gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Tailwind CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+</head>
+<body>
+  <main>
+    <!-- Gráfico Principal -->
+    <section class="col-span-3 md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
+      <div class="flex justify-between mb-2">
+        <h2 class="text-lg font-semibold">Resumo de Vendas</h2>
+        <select id="graphSelect" class="bg-gray-200 dark:bg-gray-700 text-black dark:text-white px-2 py-1 rounded">
+          <option>Melhores Funcionários</option>
+          <option>Melhores Vendedores</option>
+          <option>Departamentos que Mais Vendem</option>
+          <option>Online vs Presencial</option>
+        </select>
+      </div>
+      <canvas id="mainChart" height="120"></canvas>
+    </section>
+
+    <!-- Registro de Ponto -->
+    <section class="col-span-3 md:col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow min-h-[180px]">
+      <h2 class="text-lg font-semibold mb-2">Funcionários - Ponto</h2>
+      <ul class="space-y-2">
+        <li>✅ João passou o crachá</li>
+        <li>✅ Maria passou o crachá</li>
+        <li>⏳ Pedro ainda não registrou</li>
+      </ul>
+    </section>
+  </main>
+
+  <script src="funcionarios.js"></script>
+</body>
+</html>
