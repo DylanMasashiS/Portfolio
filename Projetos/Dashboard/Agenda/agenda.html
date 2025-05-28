@@ -1,57 +1,66 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda e Compromissos</title>
-
-    <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-    <!-- FullCalendar CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.min.css" rel="stylesheet"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agenda</title>
+  
+  <link rel="stylesheet" href="../../Dashboard/global.css">
+  <link href='../menu/menu.css' rel='stylesheet'>
+  <link href='agenda.css' rel='stylesheet'>
+  
+  <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.css' rel='stylesheet'/>
+  
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
 </head>
 <body>
-    <main>
-         <!-- Calendário -->
-    <section class="col-span-3 md:col-span-1 bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
-      <h2 class="text-lg font-semibold mb-2">Agenda do Gerente</h2>
-      <div id="calendar" class="bg-white dark:bg-gray-700 rounded overflow-hidden shadow text-black dark:text-white"></div>
-      <ul class="space-y-2 mt-4">
-        <li>📅 Reunião de equipe - 10/05</li>
-        <li>📅 Apresentação de resultados - 12/05</li>
-        <li>📅 Entrevista RH - 14/05</li>
-      </ul>
-    </section>
-    </main>
 
-    <!-- Modal da Data Selecionada -->
-    <div id="meuModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden z-50">
-      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 w-full max-w-md relative">
-        <button id="fecharModal" class="absolute top-2 right-2 text-gray-500 hover:text-red-500 text-xl">×</button>
-        <h2 class="text-xl font-semibold mb-4">Agendar Evento</h2>
-        <p id="dataSelecionada" class="text-gray-700 dark:text-gray-300 mb-4">Data:</p>
+  <div id="menu"></div>
 
-      <!-- Campo de edição do título do evento -->
-      <div class="mb-4">
-        <label for="tituloEvento" class="block text-gray-700 dark:text-gray-300">Título do Evento</label>
-        <input id="tituloEvento" type="text" class="mt-1 p-2 w-full border rounded-md dark:bg-gray-700 dark:text-gray-300" placeholder="Digite o título do evento">
-      </div>
+  <div class="conteudo">
+    <h1>Agenda</h1>
+    <div id="calendar"></div>
+  </div>
 
-      <!-- Campo de edição da descrição do evento -->
-      <div class="mb-4">
-        <label for="descricaoEvento" class="block text-gray-700 dark:text-gray-300">Descrição do Evento</label>
-        <textarea id="descricaoEvento" class="mt-1 p-2 w-full border rounded-md dark:bg-gray-700 dark:text-gray-300" placeholder="Digite a descrição do evento"></textarea>
-      </div>
+  <!-- Modal Evento Existente -->
+  <div id="eventModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modalTitle"></h2>
+      <p id="modalDate"></p>
 
-      <div class="flex justify-end">
-        <button id="salvarEvento" class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">Salvar</button>
-        <button id="btnFechar" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 ml-2">Fechar</button>
+      <label>Título:</label>
+      <input id="eventTitleInput" type="text">
+
+      <label>Data:</label>
+      <input id="eventDateInput" type="date">
+
+      <div class="modal-actions">
+        <button onclick="saveEventChanges()">Salvar</button>
+        <button onclick="closeModal()">Cancelar</button>
       </div>
     </div>
+  </div>
 
-    <!-- FullCalendar JS -->
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+  <!-- Modal ao clicar em Data Vazia -->
+  <div id="dataModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="fecharModalData()">&times;</span>
+      <h2>Adicionar Evento</h2>
+      <p id="dataSelecionada">Data:</p>
 
-  <script src="agenda.js"></script>
+      <label>Título do Evento:</label>
+      <input type="text" id="tituloEvento" placeholder="Ex.: Reunião, Entrega...">
+
+      <div class="modal-actions">
+        <button onclick="salvarEvento()">Salvar</button>
+        <button onclick="fecharModalData()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
 </body>
+
+<script src="../menu/menu.js"></script>
+<script src="agenda.js"></script>
 </html>

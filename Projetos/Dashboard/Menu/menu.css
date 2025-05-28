@@ -73,7 +73,7 @@ body {
 /* Layout Desktop */
 @media (min-width: 769px) {
   .conteudo {
-    margin-left: 250px; /* ← Espaço reservado para a sidebar no desktop */
+    margin-left: 0px; /* ← Espaço reservado para a sidebar no desktop */
   }
 }
 
@@ -81,7 +81,7 @@ body {
 @media (max-width: 768px) {
   .sidebar {
     position: fixed;
-    height: 100%;
+    height: 100vh;
     top: 0;
     left: 0;
     transform: translateX(-100%);

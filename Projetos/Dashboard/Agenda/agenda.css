@@ -1,0 +1,145 @@
+body, html {
+  height: 100vh;
+  overflow: hidden; /* evita barra de rolagem geral */
+}
+
+.conteudo {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza na horizontal */
+  justify-content: flex-start;
+  overflow-y: auto;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.conteudo h1 {
+  width: 90%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#calendar {
+  width: 90%; /* ✅ Faz o calendário não colar na borda */
+  max-width: 1200px; /* ✅ Limita tamanho máximo */
+  height: calc(100vh - 100px); /* Ajusta altura levando em conta título ou cabeçalho */
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 0 auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Deixa os eventos no Month como uma faixa colorida */
+.fc-daygrid-event {
+  display: block !important;
+  width: 100% !important;
+  border-radius: 4px;
+  padding: 2px 4px;
+  color: white !important;
+  border: none !important;
+  background-color: var(--fc-event-bg-color, #2563eb) !important;
+}
+
+/* Corrige para o texto não ficar cortado */
+.fc-daygrid-event .fc-event-title {
+  white-space: normal !important;
+}
+
+/* Mantém o estilo normal nas views week e list */
+.fc-timegrid-event, .fc-list-event {
+  border-radius: 4px;
+  padding: 2px 4px;
+  color: black;
+  border: none;
+}
+
+/* Modal */
+.modal {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+.modal.flex {
+  display: flex;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.modal-content label {
+  display: block;
+  margin: 8px 0 4px;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: #2563eb;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.modal-actions button:hover {
+  background-color: #1d4ed8;
+}
+
+.close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  background: black;
+  color: white;
+  padding: 5px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 1000;
+}

@@ -1,264 +1,41 @@
-/* styles.css */
-:root {
-  --fc-button-bg-color: #2c3e50;
-  --fc-button-text-color: #fff;
-  --fc-event-bg-color: #3788d8;
-  --fc-today-bg-color: rgba(255, 220, 40, 0.15);
+.conteudo {
+  padding: 20px;
 }
 
-/* Estrutura geral */
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f9fafb;
-  color: #1f2937;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+.grafico-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 250px 1fr;
-  min-height: 100vh;
-  gap: 1.5rem;
-  padding: 1.5rem;
-}
-
-/* Sidebar */
-.sidebar {
-  background-color: #111827;
-  color: white;
-  padding: 1.5rem;
+.tabs {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  position: fixed;
-  top: 0;
-  left: -250px;
-  height: 100vh;
-  width: 250px;
-  transition: left 0.3s ease;
-  z-index: 1000;
+  gap: 10px;
+  margin-bottom: 15px;
 }
 
-.sidebar.open {
-  left: 0;
-}
-
-/* Menu Hamburger */
-.hamburger {
-  display: none;
+.tab {
+  padding: 8px 16px;
+  background-color: #eee;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  z-index: 1001;
-  position: absolute;
-  top: 20px;
-  left: 20px;
 }
 
-.hamburger div {
-  width: 25px;
-  height: 3px;
-  background-color: #111827;
-  margin: 5px 0;
-  transition: 0.3s;
-}
-
-/* Animação do menu hambúrguer */
-.hamburger.open div:nth-child(1) {
-  transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.open div:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.open div:nth-child(3) {
-  transform: rotate(-45deg) translate(6px, -6px);
-}
-
-/* Sidebar Título */
-.sidebar .title {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-}
-
-/* Navegação da Sidebar */
-.nav-links a,
-.nav-links button {
-  display: block;
-  padding: 0.5rem 0;
-  color: #d1d5db;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover,
-.nav-links button:hover {
-  color: #ffffff;
-}
-
-.nav-links .exit {
-  color: #f87171;
-}
-
-/* Conteúdo principal */
-.main-content {
-  padding: 1.5rem;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
-  background-color: #f3f4f6;
-  height: calc(100vh - 3rem);
-  overflow-y: auto;
-}
-
-/* Cartões */
-.card {
-  background-color: white;
-  border-radius: 0.5rem;
-  padding: 1.5rem;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-  height: 100%;
-}
-
-.card canvas {
-  width: 100% !important;
-  height: auto !important;
-}
-
-/* Cabeçalho de seção */
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-}
-
-/* Listas */
-.event-list,
-.badge-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.event-list li,
-.badge-list li {
-  margin-bottom: 0.5rem;
-}
-
-/* Tema escuro */
-.dark body {
+.tab.active {
   background-color: #1f2937;
-  color: #f3f4f6;
+  color: white;
 }
 
-.dark .main-content {
-  background-color: #374151;
+.grafico {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
 }
 
-.dark .card {
-  background-color: #1f2937;
-  color: #f3f4f6;
-}
-
-.dark .sidebar {
-  background-color: #000000;
-}
-
-.dark .nav-links a,
-.dark .nav-links button {
-  color: #9ca3af;
-}
-
-.dark .nav-links a:hover,
-.dark .nav-links button:hover {
-  color: #ffffff;
-}
-
-/* Ajuste da lista de funcionários */
-.badge-list {
-  max-height: calc(100vh - 230px);
-  overflow-y: auto;
-}
-
-/* Ajuste gráfico de renda e gastos */
-#pieChart {
-  height: 200px !important;
-}
-
-/* ========== MEDIA QUERIES ========== */
-
-/* 📱 MOBILE - até 768px */
+/* Responsivo */
 @media (max-width: 768px) {
-  .container {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-
-  .sidebar {
-    left: -100%;
-    width: 70%;
-    height: 100vh;
-    transform: translateX(0);
-    transition: left 0.3s ease-in-out;
-    background-color: #333;
-    padding: 1.5rem;
-  }
-
-  .sidebar.open {
-    left: 0;
-  }
-
-  .hamburger {
-    display: block;
-  }
-
-  .main-content {
-    grid-template-columns: 1fr;
-    padding: 1rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .nav-links a,
-  .nav-links button {
-    font-size: 0.875rem;
-  }
-
-  #pieChart {
-    height: 140px !important;
-  }
-
-  #graphSelect {
-    width: 100%;
-    display: flex;
-    margin-top: 0.5rem;
-    flex-direction: row;
-  }
-
-  .pie-section {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-    padding: 10px;
-    flex-wrap: wrap;
-  }
-
-  .pie-section canvas {
-    width: 120px;
-    height: 140px;
-    flex-shrink: 0;
-  }
-
-  .summary-text {
-    flex: 1;
-    font-size: 0.9rem;
-    word-break: break-word;
+  .tabs {
+    flex-direction: column;
   }
 }

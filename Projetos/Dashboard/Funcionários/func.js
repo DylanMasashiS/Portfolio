@@ -1,20 +1,16 @@
-// Alternar Tema Claro/Escuro
-function toggleTheme() {
-  document.documentElement.classList.toggle('dark');
-}
+function mostrarGrafico(tipo) {
+  const online = document.getElementById('grafico-online');
+  const fisico = document.getElementById('grafico-fisico');
+  const tabs = document.querySelectorAll('.tab');
 
-// Chart de barra
-const mainChart = new Chart(document.getElementById('mainChart'), {
-  type: 'bar',
-  data: {
-    labels: ['Fulano', 'Ciclano', 'Beltrano'],
-    datasets: [{
-      label: 'Vendas',
-      data: [30, 50, 40],
-      backgroundColor: 'rgba(59, 130, 246, 0.7)'
-    }]
-  },
-  options: {
-    responsive: true
+  if (tipo === 'online') {
+    online.style.display = 'block';
+    fisico.style.display = 'none';
+  } else {
+    online.style.display = 'none';
+    fisico.style.display = 'block';
   }
-});
+
+  tabs.forEach(tab => tab.classList.remove('active'));
+  document.querySelector(`.tab[onclick*="${tipo}"]`).classList.add('active');
+}

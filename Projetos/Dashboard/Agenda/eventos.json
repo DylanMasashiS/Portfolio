@@ -1,14 +1,20 @@
 [
   {
-    "title": "Reunião de equipe",
-    "start": "2025-05-10"
+    "title": "Reunião Cliente",
+    "start": "2025-05-27T14:00:00",
+    "end": "2025-05-27T15:00:00",
+    "color": "#2563eb"
   },
   {
-    "title": "Apresentação de resultados",
-    "start": "2025-05-12"
+    "title": "Feriado Municipal",
+    "start": "2025-05-30",
+    "allDay": true,
+    "color": "#6b7280"
   },
   {
-    "title": "Entrevista RH",
-    "start": "2025-05-14"
+    "title": "Revisão de Projeto",
+    "start": "2025-05-28T09:00:00",
+    "end": "2025-05-28T10:00:00",
+    "color": "#16a34a"
   }
 ]

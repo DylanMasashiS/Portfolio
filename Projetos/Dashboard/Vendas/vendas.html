@@ -1,68 +1,37 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Dashboard Moderno</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vendas</title>
 
-  <!-- Tailwind CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-
-  <!-- Estilos Customizados -->
-  <link rel="stylesheet" href="vendas.css"/>
-
-  <!-- Chart.js/ Gráfios -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="../../Dashboard/global.css">
+  <link rel="stylesheet" href="../menu/menu.css">
+  <link rel="stylesheet" href="vendas.css">
 </head>
-<body class="flex h-screen bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-white">
+<body>
 
-  <!-- Sidebar Desktop -->
-  <aside class="hidden md:block w-64 bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md">
-    <div class="text-xl font-bold">Meu Perfil</div>
-    <nav class="space-y-4">
-      <a href="#" class="block">Mensagens</a>
-      <a href="#" class="block">Configurações</a>
-      <button onclick="toggleTheme()">Alternar Tema</button>
-      <a href="#" class="block">Recibos de Vendas</a>
-      <a href="#" class="block text-red-500">Sair</a>
-    </nav>
-  </aside>
+  <div id="menu-container"></div>
 
-  <!-- Botão de Menu Mobile -->
-  <button onclick="toggleMenu()" class="fixed top-4 left-4 z-50 md:hidden bg-white dark:bg-gray-800 p-2 rounded shadow">
-    ☰
-  </button>
-
-  <!-- Sidebar Mobile -->
-  <aside id="mobileMenu" class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-gray-800 p-6 space-y-6 shadow-md transform -translate-x-full transition-transform duration-300 md:hidden z-40">
-    <div class="flex justify-between items-center">
-      <div class="text-xl font-bold">Meu Perfil</div>
-      <button onclick="toggleMenu()" class="text-xl">✖</button>
-    </div>
-    <nav class="space-y-4">
-      <a href="#" onclick="carregarPagina('vendas.html')">Vendas</a>
-      <a href="#" onclick="carregarPagina('func.html')">Funcionários</a>
-      <a href="#" onclick="carregarPagina('mensagens.html')">Mensagens</a>
-      <a href="#" onclick="carregarPagina('recibos.html')">Recibos de Vendas</a>
-      <a href="#" onclick="carregarPagina('config.html')">Configuração</a>
-      <a href="#" onclick="carregarPagina('sair.html')">Sair</a>configuracao
-  </aside>
-
-  <!-- Conteúdo Principal -->
-  <main class="flex-1 p-6 overflow-y-auto grid grid-cols-3 gap-6">
-
-    <!-- Gráfico de Pizza -->
-    <section class="col-span-3 md:col-span-2 bg-white dark:bg-gray-800 p-4 rounded-xl shadow flex flex-col items-center justify-center gap-4">
-      <h2 class="text-lg font-semibold mb-2">Renda e Gastos</h2>
-      <div class="flex items-center justify-around gap-10">
-        <canvas id="pieChart" class="max-w-[120px] max-h-[120px]" width="120" height="120"></canvas>
-        <div id="pieChartLegend" class="grid grid-cols-2 gap-x-6 text-sm"></div>
+  <div class="conteudo">
+    <h1>Vendas</h1>
+    <div class="grafico-container">
+      <div class="tabs">
+        <button class="tab active" onclick="mostrarGrafico('departamentos')">Departamentos</button>
+        <button class="tab" onclick="mostrarGrafico('produtos')">Produtos</button>
       </div>
-    </section>
+      <div class="grafico" id="grafico-departamentos">
+        <!-- Gráfico de departamentos -->
+        <p>Gráfico de Departamentos mais vendidos</p>
+      </div>
+      <div class="grafico" id="grafico-produtos" style="display:none;">
+        <!-- Gráfico de produtos -->
+        <p>Gráfico de Produtos mais vendidos</p>
+      </div>
+    </div>
+  </div>
 
-  </main>
-
-  <!-- Script personalizado -->
+  <script src="../menu/menu.js"></script>
   <script src="vendas.js"></script>
 </body>
 </html>

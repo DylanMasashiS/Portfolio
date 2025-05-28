@@ -1,0 +1,62 @@
+.conteudo {
+  padding: 20px;
+}
+
+.grafico-container {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.tab {
+  padding: 8px 16px;
+  background-color: #eee;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background-color: #1f2937;
+  color: white;
+}
+
+.grafico {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* Status de ponto */
+.status-ponto {
+  margin-top: 20px;
+}
+
+.funcionario {
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.funcionario.dentro {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.funcionario.fora {
+  background-color: #e5e7eb;
+  color: #374151;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+  }
+}
