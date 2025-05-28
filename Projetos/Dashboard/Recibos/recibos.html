@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recibos</title>
+
+  <!-- CSS do menu -->
+  <link rel="stylesheet" href="../menu/menu.css">
+  <link rel="stylesheet" href="recibos.css">
+</head>
+<body>
+
+  <h1>Recibos</h1>
+
+  <!-- Filtros -->
+  <div class="filtros">
+    <input type="date" id="filtroData">
+    <input type="text" id="filtroVendedor" placeholder="Vendedor">
+    <input type="text" id="filtroCliente" placeholder="Cliente">
+    <input type="text" id="filtroProduto" placeholder="Produto">
+  </div>
+
+  <!-- Tabela de Recibos -->
+  <table>
+    <thead>
+      <tr>
+        <th>Data</th>
+        <th>Cliente</th>
+        <th>Produto</th>
+        <th>Vendedor</th>
+        <th>Valor</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody id="tabelaRecibos">
+      <!-- Dados inseridos via JS -->
+    </tbody>
+  </table>
+
+  <!-- Popup do Recibo -->
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <span class="close" id="closePopup">&times;</span>
+      <h2>Detalhes do Recibo</h2>
+      <div id="detalhesRecibo">
+        <!-- Dados inseridos via JS -->
+      </div>
+    </div>
+  </div>
+
+<script src="../menu/menu.js"></script> 
+
+<script src="recibos.js"></script>
+</body>
+</html>

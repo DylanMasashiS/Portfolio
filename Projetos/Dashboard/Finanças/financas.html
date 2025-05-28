@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finanças</title>
+
+  <!-- CSS do menu -->
+  <link rel="stylesheet" href="../menu/menu.css">
+  <link rel="stylesheet" href="financas.css">
+</head>
+<body>
+
+  <header>
+    <h1>Finanças</h1>
+    <div class="tabs">
+      <button id="tabMesAtual" class="active">Mês Atual</button>
+      <button id="tabMesAnterior">Mês Anterior</button>
+    </div>
+  </header>
+
+  <div class="chart-container">
+    <canvas id="financeChart"></canvas>
+  </div>
+
+  <script src="../menu/menu.js"></script> 
+
+  <script src="financas.js"></script>
+</body>
+</html>
