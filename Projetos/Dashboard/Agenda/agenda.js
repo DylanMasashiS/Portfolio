@@ -1,12 +1,14 @@
+let selectedEvent = null; // 🔥 Variável global para armazenar o evento selecionado
+
 document.addEventListener('DOMContentLoaded', function () {
   const calendarEl = document.getElementById('calendar');
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
-    height: 'auto', // ⬅️ Faz ele respeitar o CSS
+    height: 'auto',
     contentHeight: 'auto',
-    expandRows: true, // ⬅️ Faz ele ocupar o espaço vertical disponível de forma inteligente
-    fixedWeekCount: false, // permite que ele use 4, 5 ou 6 semanas conforme o mês
+    expandRows: true,
+    fixedWeekCount: false,
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
@@ -49,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ----- Modal Evento Existente -----
   function abrirModalEvento(event) {
+    selectedEvent = event; // 🔥 Define evento selecionado
+
     document.getElementById('modalTitle').innerText = event.title;
     document.getElementById('modalDate').innerText = "Data: " + formatarDataBr(event.startStr);
     document.getElementById('eventTitleInput').value = event.title;
@@ -58,14 +62,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.closeModal = function () {
     document.getElementById('eventModal').classList.remove('flex');
+    selectedEvent = null; // 🔥 Limpa evento selecionado ao fechar
   };
 
   window.saveEventChanges = function () {
     const titulo = document.getElementById('eventTitleInput').value;
     const data = document.getElementById('eventDateInput').value;
-    console.log('Salvando:', titulo, data);
+
+    if (selectedEvent) {
+      selectedEvent.setProp('title', titulo); // 🔥 Atualiza o título
+      selectedEvent.setStart(data);           // 🔥 Atualiza a data
+    }
+
     closeModal();
-    // Aqui você pode atualizar no backend ou localStorage
+  };
+
+  window.deleteEvent = function () {
+    if (selectedEvent) {
+      const confirmDelete = confirm('Tem certeza que deseja excluir este evento?');
+      if (confirmDelete) {
+        selectedEvent.remove(); // 🔥 Remove o evento do calendário
+        closeModal();
+      }
+    }
   };
 
   // ----- Modal Data Vazia -----

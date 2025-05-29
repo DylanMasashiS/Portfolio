@@ -25,7 +25,7 @@ body, html {
 #calendar {
   width: 90%; /* ✅ Faz o calendário não colar na borda */
   max-width: 1200px; /* ✅ Limita tamanho máximo */
-  height: calc(100vh - 100px); /* Ajusta altura levando em conta título ou cabeçalho */
+  height: calc(100vh - 75px); /* Ajusta altura levando em conta título ou cabeçalho */
   background-color: white;
   border-radius: 12px;
   padding: 20px;
@@ -55,6 +55,25 @@ body, html {
   padding: 2px 4px;
   color: black;
   border: none;
+}
+
+.fc .fc-list-event td {
+    background-color: white;
+    color: #111827;
+
+ }
+
+/* ======== Espaçamento interno da grade dos dias ======== */
+.fc-daygrid-body {
+  padding: 0px; /* Espaço interno entre a borda do calendário e os dias */
+}
+
+.fc-daygrid-day {
+  background-color: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 4px; /* ✅ Espaço interno dentro de cada célula */
+  box-sizing: border-box;
 }
 
 /* Modal */
@@ -119,7 +138,7 @@ body, html {
 }
 
 .modal-actions button:hover {
-  background-color: #1d4ed8;
+  background-color: #2563eb;
 }
 
 .close {
@@ -142,4 +161,74 @@ body, html {
   opacity: 0;
   transition: opacity 0.2s;
   z-index: 1000;
+}
+
+/* ✅ Até 1200px — Telas menores que notebooks grandes */
+@media (max-width: 1200px) {
+  #calendar {
+    width: 95%;
+    max-width: 100%;
+    height: calc(100vh - 90px);
+    padding: 15px;
+  }
+}
+
+/* ✅ Até 1024px — Tablets na horizontal e notebooks menores */
+@media (max-width: 1024px) {
+  .conteudo h1 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+  }
+
+  #calendar {
+    height: calc(100vh - 80px);
+    padding: 15px;
+  }
+}
+
+/* ✅ Até 768px — Tablets na vertical */
+@media (max-width: 768px) {
+  .conteudo h1 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  #calendar {
+    padding: 12px;
+    height: calc(100vh - 70px);
+  }
+
+  .modal-content {
+    padding: 15px 20px;
+  }
+}
+
+/* ✅ Até 480px — Smartphones */
+@media (max-width: 480px) {
+  .conteudo h1 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+  }
+
+  #calendar {
+    width: 98%;
+    height: calc(100vh - 60px);
+    padding: 10px;
+    border-radius: 8px;
+  }
+
+  .modal-content {
+    width: 95%;
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .modal-actions button {
+    width: 100%;
+  }
 }
