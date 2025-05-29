@@ -1,0 +1,10 @@
+{
+  "mesAtual": {
+    "labels": ["RH", "Marketing", "Operacional", "TI", "Logística"],
+    "valores": [2500, 1800, 3200, 2100, 2700]
+  },
+  "mesAnterior": {
+    "labels": ["RH", "Marketing", "Operacional", "TI", "Logística"],
+    "valores": [2300, 2000, 3000, 2500, 2600]
+  }
+}

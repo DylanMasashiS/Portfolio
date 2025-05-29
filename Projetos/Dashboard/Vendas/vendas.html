@@ -15,22 +15,26 @@
 
   <div class="conteudo">
     <h1>Vendas</h1>
-    <div class="grafico-container">
-      <div class="tabs">
-        <button class="tab active" onclick="mostrarGrafico('departamentos')">Departamentos</button>
-        <button class="tab" onclick="mostrarGrafico('produtos')">Produtos</button>
-      </div>
-      <div class="grafico" id="grafico-departamentos">
-        <!-- Gráfico de departamentos -->
-        <p>Gráfico de Departamentos mais vendidos</p>
-      </div>
-      <div class="grafico" id="grafico-produtos" style="display:none;">
-        <!-- Gráfico de produtos -->
-        <p>Gráfico de Produtos mais vendidos</p>
-      </div>
+
+    <!-- 🔘 Abas -->
+    <div class="tabs">
+      <button class="tab active" onclick="mostrarGrafico('departamentos')">Departamentos</button>
+      <button class="tab" onclick="mostrarGrafico('produtos')">Produtos</button>
+    </div>
+
+    <!-- 📊 Gráfico Departamentos -->
+    <div class="grafico" id="grafico-departamentos">
+      <canvas id="grafico-departamentos-canvas"></canvas>
+    </div>
+
+    <!-- 📊 Gráfico Produtos -->
+    <div class="grafico" id="grafico-produtos" style="display:none;">
+      <canvas id="grafico-produtos-canvas"></canvas>
     </div>
   </div>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="../menu/menu.js"></script>
   <script src="vendas.js"></script>
 </body>

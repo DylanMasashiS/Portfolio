@@ -1,0 +1,16 @@
+{
+  "departamentos": [
+    { "nome": "Eletrônicos", "vendas": 120 },
+    { "nome": "Roupas", "vendas": 95 },
+    { "nome": "Alimentos", "vendas": 150 },
+    { "nome": "Móveis", "vendas": 80 },
+    { "nome": "Esportes", "vendas": 60 }
+  ],
+  "produtos": [
+    { "nome": "Notebook", "vendas": 50 },
+    { "nome": "Camisa", "vendas": 40 },
+    { "nome": "Cadeira Gamer", "vendas": 30 },
+    { "nome": "Arroz", "vendas": 70 },
+    { "nome": "Bola de Futebol", "vendas": 20 }
+  ]
+}
