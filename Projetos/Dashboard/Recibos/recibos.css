@@ -6,29 +6,48 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', sans-serif;
   background: #f4f4f4;
-  padding: 20px;
   color: #333;
+  padding: 20px;
+}
+
+/* Container Geral */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
 /* Título */
 h1 {
   margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
 }
 
-/* Filtros */
+/* Barra de Pesquisa */
 .filtros {
   display: flex;
   gap: 10px;
+  margin-bottom: 15px;
   flex-wrap: wrap;
-  margin-bottom: 20px;
 }
 
 .filtros input {
-  padding: 8px;
+  padding: 8px 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 180px;
+}
+
+.filtros input:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 /* Tabela */
@@ -39,52 +58,56 @@ table {
 }
 
 th, td {
-  padding: 10px;
+  padding: 10px 12px;
   border: 1px solid #ddd;
-  text-align: left;
+  font-size: 14px;
 }
 
 th {
-  background: #007bff;
+  background-color: #007bff;
   color: white;
+  text-align: left;
 }
 
 tr:hover {
-  background-color: #f1f1f1;
+  background-color: #f9f9f9;
 }
 
+/* Botões */
 button {
-  padding: 5px 10px;
-  background: #28a745;
+  padding: 6px 12px;
+  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
-  background: #218838;
+  background-color: #0056b3;
 }
 
-/* Popup */
+/* Modal */
 .popup {
   display: none;
   position: fixed;
-  z-index: 10;
-  left: 0;
-  top: 0;
+  z-index: 1000;
+  left: 0; top: 0;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.5);
+  align-items: center;
+  justify-content: center;
 }
 
 .popup-content {
   background: white;
-  margin: 5% auto;
   padding: 20px;
-  width: 90%;
-  max-width: 500px;
   border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
   position: relative;
 }
 
@@ -92,8 +115,9 @@ button:hover {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 24px;
+  font-size: 20px;
   cursor: pointer;
+  color: #aaa;
 }
 
 .close:hover {
@@ -102,7 +126,7 @@ button:hover {
 
 /* Responsivo */
 @media (max-width: 600px) {
-  .filtros {
-    flex-direction: column;
+  .filtros input {
+    width: 100%;
   }
 }

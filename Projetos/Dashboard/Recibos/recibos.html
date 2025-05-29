@@ -11,46 +11,45 @@
 </head>
 <body>
 
+<div class="container">
   <h1>Recibos</h1>
 
-  <!-- Filtros -->
+  <!-- 🔍 Barra de Pesquisa -->
   <div class="filtros">
-    <input type="date" id="filtroData">
-    <input type="text" id="filtroVendedor" placeholder="Vendedor">
-    <input type="text" id="filtroCliente" placeholder="Cliente">
+    <input type="text" id="filtroCliente" placeholder="Nome do Cliente">
+    <input type="text" id="filtroCPF" placeholder="CPF">
+    <input type="text" id="filtroVendedor" placeholder="Nome do Vendedor">
     <input type="text" id="filtroProduto" placeholder="Produto">
   </div>
 
-  <!-- Tabela de Recibos -->
-  <table>
+  <!-- 🗂️ Tabela de Recibos -->
+  <table id="tabelaRecibos">
     <thead>
       <tr>
-        <th>Data</th>
         <th>Cliente</th>
-        <th>Produto</th>
+        <th>CPF</th>
         <th>Vendedor</th>
-        <th>Valor</th>
-        <th>Ações</th>
+        <th>Produto</th>
+        <th>Data</th>
+        <th>Ação</th>
       </tr>
     </thead>
-    <tbody id="tabelaRecibos">
-      <!-- Dados inseridos via JS -->
+    <tbody>
+      <!-- 🔗 Dados carregados dinamicamente via JS -->
     </tbody>
   </table>
+</div>
 
-  <!-- Popup do Recibo -->
-  <div class="popup" id="popup">
-    <div class="popup-content">
-      <span class="close" id="closePopup">&times;</span>
-      <h2>Detalhes do Recibo</h2>
-      <div id="detalhesRecibo">
-        <!-- Dados inseridos via JS -->
-      </div>
-    </div>
+<!-- 📑 Modal -->
+<div class="popup" id="modal">
+  <div class="popup-content">
+    <span class="close" id="closeModal">×</span>
+    <div id="modalContent"></div>
   </div>
+</div>
 
-<script src="../menu/menu.js"></script> 
-
+<script src="../menu/menu.js"></script>
 <script src="recibos.js"></script>
+
 </body>
 </html>
