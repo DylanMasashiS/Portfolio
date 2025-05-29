@@ -11,27 +11,25 @@
 </head>
 <body>
 
-  <h1>Mensagens</h1>
+  <div class="mural-container">
+    <h1>Mural de Mensagens</h1>
 
-  <!-- Container dos bilhetes -->
-  <div class="container-mensagens" id="containerMensagens">
-    <!-- Bilhetes serão carregados aqui via JS -->
+    <div id="containerMensagens" class="container-mensagens">
+      <!-- As mensagens serão geradas aqui via JS -->
+    </div>
   </div>
 
   <!-- Popup -->
   <div class="popup" id="popup">
     <div class="popup-content">
       <span class="close" id="closePopup">&times;</span>
-      <h2>Mensagem</h2>
       <div id="detalhesMensagem">
-        <!-- Conteúdo via JS -->
+        <!-- Conteúdo preenchido dinamicamente -->
       </div>
     </div>
   </div>
 
-
-<script src="../menu/menu.js"></script> 
-
-<script src="mensagens.js"></script>
+  <script src="../menu/menu.js"></script>
+  <script src="mensagens.js"></script>
 </body>
 </html>

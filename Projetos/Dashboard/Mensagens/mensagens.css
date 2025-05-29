@@ -1,72 +1,89 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+.mural-container {
+  background-image: url('cortiça.jpg'); /* Textura de cortiça */
+  background-size: cover;
+  background-position: center;
+  border: 20px solid #3f2711; /* Cor de madeira (moldura) */
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 900px;
+  min-height: 90vh;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
 }
 
-body {
-  font-family: sans-serif;
-  background: #f4f4f4;
+/* Título centralizado */
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
   color: #333;
 }
 
-/* Título */
-h1 {
-  margin-bottom: 20px;
-}
-
-/* Container de mensagens */
 .container-mensagens {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  flex-wrap: wrap;
+  gap: 20px; /* Espaçamento entre os bilhetes */
+  justify-content: center;
 }
 
-/* Cartões de mensagens */
+/* Cartões de mensagens (simulam papeis fixados) */
 .mensagem {
-  background: white;
-  border-left: 5px solid #007bff;
-  padding: 15px;
+  background: #fff;
   border-radius: 8px;
+  padding: 15px 20px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  width: 130px;
+  height: 100px;
+  transition: transform 0.2s;
   cursor: pointer;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  transition: background 0.3s;
 }
 
 .mensagem:hover {
-  background: #f1f1f1;
+  transform: scale(1.02);
+  background-color: #f9f9f9;
 }
 
-.mensagem .remetente {
-  font-weight: bold;
+/* Tachinha (pin) */
+.mensagem::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #e63946;
+  border-radius: 50%;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.mensagem .hora {
-  font-size: 0.8em;
-  color: gray;
-}
-
-/* Popup */
+/* Popup Modal */
 .popup {
-  display: none;
+  display: none; /* <- Mantém fechado até clicar */
   position: fixed;
-  z-index: 10;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
 }
 
 .popup-content {
   background: white;
-  margin: 5% auto;
   padding: 20px;
-  width: 90%;
+  border-radius: 10px;
   max-width: 500px;
-  border-radius: 8px;
+  width: 90%;
   position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -81,9 +98,15 @@ h1 {
   color: red;
 }
 
-/* Responsivo */
-@media (max-width: 600px) {
-  .popup-content {
-    width: 95%;
+/* Responsividade */
+@media (max-width: 768px) {
+  .mural-container {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  .mensagem {
+    width: 100px;
+    height: 90px;
   }
 }

@@ -1,78 +1,49 @@
-// Mensagens simuladas
-const mensagens = [
-  {
-    remetente: 'RH - Carla',
-    hora: '2024-05-26 09:30',
-    conteudo: 'Agendada uma entrevista para amanhã às 14h com o candidato João Silva.'
-  },
-  {
-    remetente: 'Limpeza - Ana',
-    hora: '2024-05-26 10:15',
-    conteudo: 'Acabaram os produtos de limpeza do estoque. Precisamos repor.'
-  },
-  {
-    remetente: 'Vendas - Paulo',
-    hora: '2024-05-26 11:05',
-    conteudo: 'Cliente deseja fechar uma venda com preço abaixo da tabela. Pode liberar?'
-  },
-  {
-    remetente: 'Financeiro - Bruno',
-    hora: '2024-05-26 12:00',
-    conteudo: 'Preciso de aprovação para pagamento da fatura do fornecedor X.'
-  },
-  {
-    remetente: 'Marketing - Júlia',
-    hora: '2024-05-26 13:30',
-    conteudo: 'Campanha de redes sociais finalizada. Aguardando aprovação.'
-  }
-];
+// Carrega as mensagens do JSON local
+fetch('mensagens.json')
+  .then(response => response.json())
+  .then(mensagens => {
+    const container = document.getElementById('containerMensagens');
 
-// Ordena cronologicamente (mais recente no topo)
-mensagens.sort((a, b) => new Date(b.hora) - new Date(a.hora));
+    mensagens.forEach(msg => {
+      const div = document.createElement('div');
+      div.classList.add('mensagem');
+      div.dataset.id = msg.id;
 
-const container = document.getElementById('containerMensagens');
-const popup = document.getElementById('popup');
-const detalhes = document.getElementById('detalhesMensagem');
-const closePopup = document.getElementById('closePopup');
+      div.innerHTML = `
+        <div class="remetente">${msg.remetente}</div>
+        <div class="hora">${msg.hora}</div>
+        <div class="conteudo">${msg.urgente ? '🚨 Urgente' : 'Mensagem'}</div>
+      `;
 
-// Renderiza os bilhetes
-function renderizarMensagens() {
-  container.innerHTML = '';
-  mensagens.forEach((m, index) => {
-    const div = document.createElement('div');
-    div.classList.add('mensagem');
-    div.innerHTML = `
-      <div class="remetente">${m.remetente}</div>
-      <div class="hora">${m.hora}</div>
-      <div class="resumo">${m.conteudo.substring(0, 60)}...</div>
-    `;
-    div.onclick = () => abrirPopup(index);
-    container.appendChild(div);
+      div.addEventListener('click', () => abrirPopup(msg));
+
+      container.appendChild(div);
+    });
   });
-}
 
-// Abre popup
-function abrirPopup(index) {
-  const m = mensagens[index];
+function abrirPopup(msg) {
+  const detalhes = document.getElementById('detalhesMensagem');
   detalhes.innerHTML = `
-    <p><strong>Remetente:</strong> ${m.remetente}</p>
-    <p><strong>Data/Hora:</strong> ${m.hora}</p>
-    <p><strong>Mensagem:</strong></p>
-    <p>${m.conteudo}</p>
+    <h2>${msg.remetente}</h2>
+    <p><strong>Data:</strong> ${msg.data}</p>
+    <p><strong>Hora:</strong> ${msg.hora}</p>
+    <p><strong>Departamento:</strong> ${msg.departamento}</p>
+    <p><strong>Mensagem:</strong> ${msg.conteudo}</p>
+    <p><strong>Urgente:</strong> ${msg.urgente ? 'Sim' : 'Não'}</p>
   `;
-  popup.style.display = 'block';
+
+  const popup = document.getElementById('popup');
+  popup.style.display = 'flex'; // Aqui ele abre
 }
 
-// Fecha popup
-closePopup.onclick = () => {
-  popup.style.display = 'none';
-};
+// Fecha o popup
+document.getElementById('closePopup').addEventListener('click', () => {
+  document.getElementById('popup').style.display = 'none';
+});
 
-window.onclick = (e) => {
-  if (e.target == popup) {
-    popup.style.display = 'none';
+window.addEventListener('click', (e) => {
+  if (e.target.id === 'popup') {
+    document.getElementById('popup').style.display = 'none';
   }
-};
+});
 
-// Inicializa
-renderizarMensagens();

@@ -1,20 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Configurações</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Configurações</title>
 
   <link rel="stylesheet" href="../../Dashboard/global.css">
-  <link rel="stylesheet" href="../Menu/menu.css">
+  <link rel="stylesheet" href="../menu/menu.css">
   <link rel="stylesheet" href="configuracao.css">
+
+  <!-- Ícones -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <main>
 
-    </main>
+  <div id="menu-container"></div>
 
-    
-    <script src="config.js"></script>
+  <main class="conteudo">
+    <h1>Configurações</h1>
+
+    <div class="card-container">
+      <a href="../Perfil/perfil.html" class="card">
+        <i class="ph ph-user-circle"></i>
+        <h2>Perfil</h2>
+        <p>Gerencie suas informações pessoais, email e senha.</p>
+      </a>
+
+      <a href="../Fatores/fatores.html" class="card">
+        <i class="ph ph-lock-key"></i>
+        <h2>Fatores</h2>
+        <p>Ative fatores de segurança e autenticação.</p>
+      </a>
+
+      <a href="../Tema/tema.html" class="card">
+        <i class="ph ph-palette"></i>
+        <h2>Tema</h2>
+        <p>Escolha entre temas claro, escuro ou personalizado.</p>
+      </a>
+    </div>
+  </main>
+
+  <script src="../menu/menu.js"></script>
 </body>
 </html>

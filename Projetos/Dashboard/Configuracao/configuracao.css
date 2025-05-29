@@ -1,0 +1,68 @@
+/* 🏠 Container principal */
+.conteudo {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 🎯 Título centralizado */
+h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* 🗂️ Cards em uma única fileira */
+.card-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.12);
+}
+
+.card i {
+  font-size: 2.8rem;
+  color: #007bff;
+}
+
+.card h2 {
+  font-size: 1.4rem;
+  margin: 0;
+  text-align: center;
+}
+
+.card p {
+  color: #555;
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+/* 📱 Responsivo */
+@media (max-width: 900px) {
+  .card {
+    width: 100%;
+    max-width: 320px;
+  }
+}

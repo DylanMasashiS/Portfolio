@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "remetente": "João Silva",
+    "hora": "10:30",
+    "data": "2024-05-20",
+    "departamento": "Financeiro",
+    "conteudo": "Reunião às 14h na sala 3.",
+    "urgente": true
+  },
+  {
+    "id": 2,
+    "remetente": "Maria Souza",
+    "hora": "11:00",
+    "data": "2024-05-21",
+    "departamento": "RH",
+    "conteudo": "Lembrete: entrega dos documentos até sexta.",
+    "urgente": false
+  },
+  {
+    "id": 3,
+    "remetente": "Carlos Lima",
+    "hora": "12:15",
+    "data": "2024-05-22",
+    "departamento": "TI",
+    "conteudo": "Manutenção nos servidores hoje às 18h.",
+    "urgente": true
+  }
+]
