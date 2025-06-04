@@ -1,59 +1,118 @@
-
-.grafico-container {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+body {
+  display: flex;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* NÃO definir o width do menu aqui, pois já vem do menu.css */
+
+/* Conteúdo principal */
+.conteudo {
+  flex: 1; /* Ocupa todo o espaço disponível que o menu não ocupa */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow-y: auto;
+  max-height: 100vh;
+  box-sizing: border-box;
+}
+
+/* Blocos */
+.grafico-container,
+.status-ponto {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Título */
+h1 {
+  font-size: 32px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Tabs */
 .tabs {
   display: flex;
+  justify-content: center;
   gap: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .tab {
-  padding: 8px 16px;
+  padding: 10px 20px;
   background-color: #eee;
   border: none;
-  border-radius: 8px;
+  border-radius: 20px;
   cursor: pointer;
+  transition: background 0.3s;
 }
 
-.tab.active {
-  background-color: #1f2937;
+.tab.active,
+.tab:hover {
+  background-color: #007bff;
   color: white;
 }
 
-.grafico {
-  background-color: #f9f9f9;
-  padding: 15px;
-  border-radius: 8px;
+/* Canvas */
+canvas {
+  width: 100% !important;
+  max-width: 600px;
+  height: auto !important;
+  margin: 0 auto;
+  display: block;
 }
 
-/* Status de ponto */
-.status-ponto {
-  margin-top: 20px;
+/* Status */
+.status-ponto h2 {
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .funcionario {
   padding: 10px;
   border-radius: 8px;
   margin-bottom: 8px;
+  color: #fff;
+  font-weight: bold;
 }
 
-.funcionario.dentro {
-  background-color: #d1fae5;
-  color: #065f46;
+.dentro {
+  background-color: #28a745;
 }
 
-.funcionario.fora {
-  background-color: #e5e7eb;
-  color: #374151;
+.fora {
+  background-color: #dc3545;
 }
 
 /* Responsivo */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+  body {
+    flex-direction: column;
+  }
+
+  #menu-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .conteudo {
+    max-height: none;
+    overflow-y: visible;
+  }
+
   .tabs {
     flex-direction: column;
+    gap: 8px;
+  }
+
+  .tab {
+    width: 100%;
+    text-align: center;
   }
 }

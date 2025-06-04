@@ -1,0 +1,23 @@
+{
+  "vendasOnline": [
+    { "nome": "Carlos", "vendas": 12 },
+    { "nome": "Ana", "vendas": 19 },
+    { "nome": "Lucas", "vendas": 7 },
+    { "nome": "Roberto", "vendas": 14 },
+    { "nome": "Amanda", "vendas": 11 },
+    { "nome": "Vanessa", "vendas": 20 }
+  ],
+  "vendasFisica": [
+    { "nome": "Carlos", "vendas": 9 },
+    { "nome": "Ana", "vendas": 5 },
+    { "nome": "Thiago", "vendas": 14 },
+    { "nome": "Cátia", "vendas": 16 },
+    { "nome": "Reginaldo", "vendas": 7 },
+    { "nome": "Tábatha", "vendas": 2 }
+  ],
+  "statusPonto": [
+    { "nome": "Carlos", "status": "Dentro" },
+    { "nome": "Ana", "status": "Fora" },
+    { "nome": "Lucas", "status": "Dentro" }
+  ]
+}
