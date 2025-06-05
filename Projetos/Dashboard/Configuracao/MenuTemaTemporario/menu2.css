@@ -1,0 +1,102 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #1f2937;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.sidebar .logo h2 {
+  font-size: 22px;
+}
+
+.sidebar .menu-toggle {
+  display: none;
+  position: absolute;
+  right: 15px;
+  top: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+  transition: background 0.3s;
+}
+
+.sidebar ul li a:hover {
+  background-color: #374151;
+  border-radius: 8px;
+}
+
+/* Conteúdo principal */
+.conteudo {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Layout Desktop */
+@media (min-width: 769px) {
+  .conteudo {
+    margin-left: 0px; /* ← Espaço reservado para a sidebar no desktop */
+  }
+}
+
+/* Responsividade - Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.aberto {
+    transform: translateX(0);
+  }
+
+  .sidebar .menu-toggle {
+    display: block;
+  }
+
+  .conteudo {
+    margin-left: 0;
+  }
+}

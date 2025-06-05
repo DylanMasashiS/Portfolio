@@ -1,28 +1,59 @@
-/* Garante que o body e o html ocupem toda a altura da tela */
+/* perfil.css */
+
+/* 🎨 Tema Light */
+:root {
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --text: #333;
+  --input-bg: #fff;
+  --input-border: #ccc;
+  --button-bg: #007bff;
+  --button-hover: #0056b3;
+  --button-secondary: #6c757d;
+  --button-secondary-hover: #5a6268;
+}
+
+/* 🌙 Tema Dark */
+body.dark {
+  --bg: #111;
+  --card: #1e1e1e;
+  --text: #f4f4f4;
+  --input-bg: #111;
+  --input-border: #555;
+  --button-bg: #4ea3ff;
+  --button-hover: #007acc;
+  --button-secondary: #888;
+  --button-secondary-hover: #666;
+}
+
+/* Layout base */
 html, body {
   height: 100vh;
   margin: 0;
   padding: 0;
   display: flex;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
 }
 
-/* Container do menu lateral */
+/* Menu lateral */
 #menu-container {
-  flex-shrink: 0; /* Não encolhe */
+  flex-shrink: 0;
 }
 
-/* Container do conteúdo da página */
+/* Conteúdo */
 .conteudo {
-  flex: 1; /* Ocupa todo o espaço disponível */
+  flex: 1;
   padding: 20px;
-  overflow-y: auto; /* Scroll se o conteúdo passar do limite */
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
 }
 
-/* Card de perfil centralizado e responsivo */
+/* Card de perfil */
 .perfil-card {
-  background: #fff;
+  background: var(--card);
   border-radius: 10px;
   padding: 20px;
   display: flex;
@@ -64,14 +95,22 @@ html, body {
 
 .campo input {
   padding: 8px 10px;
-  border: 1px solid #ccc;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
   border-radius: 5px;
+  color: var(--text);
 }
 
+.campo input:focus {
+  outline: none;
+  border-color: var(--button-bg);
+}
+
+/* Botões */
 .btn-salvar {
   margin-top: auto;
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: var(--button-bg);
   color: white;
   border: none;
   border-radius: 8px;
@@ -79,12 +118,12 @@ html, body {
 }
 
 .btn-salvar:hover {
-  background-color: #0056b3;
+  background-color: var(--button-hover);
 }
 
 .btn-foto {
   padding: 6px 12px;
-  background-color: #6c757d;
+  background-color: var(--button-secondary);
   color: white;
   border: none;
   border-radius: 8px;
@@ -92,5 +131,5 @@ html, body {
 }
 
 .btn-foto:hover {
-  background-color: #5a6268;
+  background-color: var(--button-secondary-hover);
 }

@@ -1,5 +1,5 @@
 // Carrega o menu.html dinamicamente
-fetch('../../Menu/menu.')
+fetch('../MenuTemaTemporario/menu2.html')
   .then(response => response.text())
   .then(data => {
     document.body.insertAdjacentHTML('afterbegin', data);
