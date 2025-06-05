@@ -5,28 +5,70 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Perfil</title>
 
+  <!-- CSS Global e de Menu -->
   <link rel="stylesheet" href="../../../Dashboard/global.css">
+  <link rel="stylesheet" href="../../../Tema/tema.css">
   <link rel="stylesheet" href="../../Menu/menu.css">
   <link rel="stylesheet" href="perfil.css">
+
 </head>
 <body>
 
-  <h1>Perfil</h1>
+  <!-- Menu lateral -->
+  <div id="menu-container"></div>
 
-  <form id="perfilForm">
-    <label>Nome:
-      <input type="text" id="nome" value="Fulano">
-    </label><br><br>
-    <label>Email:
-      <input type="email" id="email" value="fulano@email.com">
-    </label><br><br>
-    <button type="submit">Salvar</button>
-  </form>
+  <!-- Conteúdo -->
+  <div class="conteudo">
+    <h1>Perfil do Usuário</h1>
 
-  <p id="msg"></p>
+    <div class="perfil-card">
+      <div class="foto">
+        <img 
+          id="fotoPerfil" 
+          src="foto-perfil.png" 
+          alt="Foto de Perfil" 
+          onerror="this.onerror=null; this.src='foto-padrao.png';"
+        >
+      </div>
 
-<script src="../../menu/menu.js"></script>
+      <div class="info">
+        <div class="campo">
+          <label>Nome Completo:</label>
+          <input type="text" value="João da Silva">
+        </div>
 
-<script src="perfil.js"></script>
+        <div class="campo">
+          <label>Nome Social:</label>
+          <input type="text" value="Joãozinho">
+        </div>
+
+        <div class="campo">
+          <label>Cargo:</label>
+          <input type="text" value="Desenvolvedor">
+        </div>
+
+        <div class="campo">
+          <label>Departamento:</label>
+          <input type="text" value="TI">
+        </div>
+
+        <div class="campo">
+          <label>Email:</label>
+          <input type="email" value="joao@email.com">
+        </div>
+
+        <div class="campo">
+          <label>Senha:</label>
+          <input type="password" value="********">
+        </div>
+
+        <button class="btn-salvar">Salvar Alterações</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../../Menu/menu2.js"></script>
+  <script src="perfil.js"></script>
 </body>
 </html>

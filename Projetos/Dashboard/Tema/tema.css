@@ -1,0 +1,17 @@
+/* Light */
+:root {
+  --bg: #ffffff;
+  --text: #111111;
+  --primary: #007bff;
+  --secondary: #f4f4f4;
+  --card: #fafafa;
+}
+
+/* Dark */
+body.dark {
+  --bg: #111111;
+  --text: #ffffff;
+  --primary: #0d6efd;
+  --secondary: #1a1a1a;
+  --card: #1e1e1e;
+}

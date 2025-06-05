@@ -4,7 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard - Menu</title>
+
   <link rel="stylesheet" href="menu.css">
+  <link rel="stylesheet" href="../Tema/tema.css">
 </head>
 <body>
 
@@ -22,10 +24,14 @@
       <li><a href="../Recibos/recibos.html">Recibos</a></li>
       <li><a href="../Funcionários/funcionarios.html">Funcionários</a></li>
       <li><a href="../Configuracao/configuracao.html">Configurações</a></li>
+      <div class="tema-toggle">
+        <button onclick="trocarTema()">🌙 / ☀️</button>
+      </div>
       <li><a href="#">Sair</a></li>
     </ul>
   </nav>
 
+  <script src="../Tema/tema.js" defer></script>
   <script src="menu.js"></script>
 </body>
 </html>

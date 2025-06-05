@@ -1,6 +1,34 @@
+/* ====== Variáveis de Tema ====== */
+:root {
+  --bg: #ffffff;
+  --text: #111827;
+  --card: #f9fafb;
+  --border: #e5e7eb;
+  --calendar-bg: #ffffff;
+  --modal-bg: #ffffff;
+  --input-border: #cccccc;
+  --tooltip-bg: #000000;
+  --primary: #2563eb;
+}
+
+body.dark {
+  --bg: #111827;
+  --text: #f9fafb;
+  --card: #1f2937;
+  --border: #374151;
+  --calendar-bg: #1f2937;
+  --modal-bg: #1f2937;
+  --input-border: #4b5563;
+  --tooltip-bg: #f9fafb;
+  --primary: #3b82f6;
+}
+
+/* ====== Estilos Gerais ====== */
 body, html {
   height: 100vh;
-  overflow: hidden; /* evita barra de rolagem geral */
+  overflow: hidden;
+  background-color: var(--bg);
+  color: var(--text);
 }
 
 .conteudo {
@@ -8,7 +36,7 @@ body, html {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centraliza na horizontal */
+  align-items: center;
   justify-content: flex-start;
   overflow-y: auto;
   height: 100vh;
@@ -19,21 +47,22 @@ body, html {
   width: 90%;
   max-width: 1200px;
   margin-bottom: 20px;
-  color: #333;
+  color: var(--text);
 }
 
 #calendar {
-  width: 90%; /* ✅ Faz o calendário não colar na borda */
-  max-width: 1200px; /* ✅ Limita tamanho máximo */
-  height: calc(100vh - 75px); /* Ajusta altura levando em conta título ou cabeçalho */
-  background-color: white;
+  width: 90%;
+  max-width: 1200px;
+  height: calc(100vh - 75px);
+  background-color: var(--calendar-bg);
   border-radius: 12px;
   padding: 20px;
   margin: 0 auto;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid var(--border);
 }
 
-/* Deixa os eventos no Month como uma faixa colorida */
+/* ====== FullCalendar ====== */
 .fc-daygrid-event {
   display: block !important;
   width: 100% !important;
@@ -41,44 +70,41 @@ body, html {
   padding: 2px 4px;
   color: white !important;
   border: none !important;
-  background-color: var(--fc-event-bg-color, #2563eb) !important;
+  background-color: var(--fc-event-bg-color, var(--primary)) !important;
 }
 
-/* Corrige para o texto não ficar cortado */
 .fc-daygrid-event .fc-event-title {
   white-space: normal !important;
 }
 
-/* Mantém o estilo normal nas views week e list */
-.fc-timegrid-event, .fc-list-event {
+.fc-timegrid-event,
+.fc-list-event {
   border-radius: 4px;
   padding: 2px 4px;
-  color: black;
+  color: var(--text);
   border: none;
 }
 
 .fc .fc-list-event td {
-    background-color: white;
-    color: #111827;
+  background-color: var(--calendar-bg);
+  color: var(--text);
+}
 
- }
-
-/* ======== Espaçamento interno da grade dos dias ======== */
 .fc-daygrid-body {
-  padding: 0px; /* Espaço interno entre a borda do calendário e os dias */
+  padding: 0;
 }
 
 .fc-daygrid-day {
-  background-color: white;
-  border: 1px solid #e5e7eb;
+  background-color: var(--card);
+  border: 1px solid var(--border);
   border-radius: 6px;
-  padding: 4px; /* ✅ Espaço interno dentro de cada célula */
+  padding: 4px;
   box-sizing: border-box;
 }
 
-/* Modal */
+/* ====== Modal ====== */
 .modal {
-  display: none; /* Oculto por padrão */
+  display: none;
   position: fixed;
   z-index: 999;
   left: 0;
@@ -95,7 +121,7 @@ body, html {
 }
 
 .modal-content {
-  background-color: #fff;
+  background-color: var(--modal-bg);
   padding: 20px 30px;
   border-radius: 10px;
   width: 90%;
@@ -118,7 +144,9 @@ body, html {
   padding: 8px;
   margin-bottom: 10px;
   border-radius: 6px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--input-border);
+  background-color: var(--card);
+  color: var(--text);
 }
 
 .modal-actions {
@@ -132,13 +160,13 @@ body, html {
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  background-color: #2563eb;
+  background-color: var(--primary);
   color: white;
   transition: background-color 0.2s;
 }
 
 .modal-actions button:hover {
-  background-color: #2563eb;
+  opacity: 0.9;
 }
 
 .close {
@@ -149,11 +177,11 @@ body, html {
   cursor: pointer;
 }
 
-/* Tooltip */
+/* ====== Tooltip ====== */
 .tooltip {
   position: absolute;
-  background: black;
-  color: white;
+  background: var(--tooltip-bg);
+  color: var(--bg);
   padding: 5px 8px;
   border-radius: 4px;
   font-size: 12px;
@@ -163,7 +191,7 @@ body, html {
   z-index: 1000;
 }
 
-/* ✅ Até 1200px — Telas menores que notebooks grandes */
+/* ====== Responsivo ====== */
 @media (max-width: 1200px) {
   #calendar {
     width: 95%;
@@ -173,7 +201,6 @@ body, html {
   }
 }
 
-/* ✅ Até 1024px — Tablets na horizontal e notebooks menores */
 @media (max-width: 1024px) {
   .conteudo h1 {
     font-size: 1.8rem;
@@ -186,7 +213,6 @@ body, html {
   }
 }
 
-/* ✅ Até 768px — Tablets na vertical */
 @media (max-width: 768px) {
   .conteudo h1 {
     font-size: 1.5rem;
@@ -203,7 +229,6 @@ body, html {
   }
 }
 
-/* ✅ Até 480px — Smartphones */
 @media (max-width: 480px) {
   .conteudo h1 {
     font-size: 1.2rem;

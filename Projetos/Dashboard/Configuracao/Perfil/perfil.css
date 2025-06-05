@@ -1,42 +1,96 @@
-body {
-  font-family: sans-serif;
-  background: #f4f4f4;
+/* Garante que o body e o html ocupem toda a altura da tela */
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
 
-form {
-  background: white;
+/* Container do menu lateral */
+#menu-container {
+  flex-shrink: 0; /* Não encolhe */
+}
+
+/* Container do conteúdo da página */
+.conteudo {
+  flex: 1; /* Ocupa todo o espaço disponível */
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  overflow-y: auto; /* Scroll se o conteúdo passar do limite */
+  display: flex;
+  flex-direction: column;
 }
 
-label {
-  display: block;
-  margin-bottom: 10px;
+/* Card de perfil centralizado e responsivo */
+.perfil-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  gap: 30px;
+  flex: 1;
 }
 
-input {
-  padding: 8px;
-  width: 100%;
-  margin-top: 5px;
+.perfil-card .foto {
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.perfil-card .foto img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.perfil-card .info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.campo input {
+  padding: 8px 10px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-button {
-  margin-top: 10px;
-  padding: 10px 20px;
-  background: #007bff;
-  color: white;
-  border: none;
   border-radius: 5px;
 }
 
-button:hover {
-  background: #0056b3;
+.btn-salvar {
+  margin-top: auto;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
-#msg {
-  margin-top: 15px;
-  font-weight: bold;
+.btn-salvar:hover {
+  background-color: #0056b3;
+}
+
+.btn-foto {
+  padding: 6px 12px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.btn-foto:hover {
+  background-color: #5a6268;
 }
