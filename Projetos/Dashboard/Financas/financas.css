@@ -1,16 +1,40 @@
 /* financas.css */
+
+/* Tema Light */
+:root {
+  --bg: #f9f9f9;
+  --card: #ffffff;
+  --text: #111111;
+  --shadow: rgba(0, 0, 0, 0.1);
+  --tab: #dddddd;
+  --tab-hover: #cccccc;
+  --tab-active: #28a745;
+}
+
+/* Tema Dark */
+body.dark {
+  --bg: #111111;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --tab: #333333;
+  --tab-hover: #444444;
+  --tab-active: #28a745;
+}
+
 body {
-  background: #f9f9f9;
+  background: var(--bg);
   font-family: 'Segoe UI', sans-serif;
+  color: var(--text);
 }
 
 .chart-section {
   max-width: 1200px;
   margin: 40px auto;
-  background: white;
+  background: var(--card);
   padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 .chart-header {
@@ -25,25 +49,27 @@ body {
 .chart-header h1 {
   margin: 0;
   font-size: 28px;
+  color: var(--text);
 }
 
 .tabs button {
   padding: 8px 16px;
   border: none;
-  background: #ddd;
+  background: var(--tab);
   margin-right: 5px;
   cursor: pointer;
   border-radius: 5px;
   transition: background 0.3s;
+  color: var(--text);
 }
 
 .tabs button.active {
-  background: #28a745;
+  background: var(--tab-active);
   color: white;
 }
 
 .tabs button:hover {
-  background: #ccc;
+  background: var(--tab-hover);
 }
 
 .chart-container {
@@ -51,7 +77,7 @@ body {
   width: 100%;
   max-width: 100%;
   height: 500px;
-  overflow: hidden; /* 🔥 Impede que o gráfico estoure */
+  overflow: hidden;
   padding: 20px;
   box-sizing: border-box;
 }

@@ -1,8 +1,49 @@
+/* vendas.css */
+
+/* Tema Light */
+:root {
+  --bg: #f4f4f4;
+  --card: #ffffff;
+  --text: #333333;
+  --tab-bg: #eeeeee;
+  --tab-border: #dddddd;
+  --tab-hover: #dddddd;
+  --tab-active: #007bff;
+  --tab-active-text: #ffffff;
+}
+
+/* Tema Dark */
+body.dark {
+  --bg: #111111;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --tab-bg: #222222;
+  --tab-border: #444444;
+  --tab-hover: #333333;
+  --tab-active: #007bff;
+  --tab-active-text: #ffffff;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Gráfico */
 .grafico {
   width: 100%;
   height: 400px;
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
+/* Tabs */
 .tabs {
   display: flex;
   gap: 10px;
@@ -11,13 +52,19 @@
 
 .tab {
   padding: 8px 16px;
-  background-color: #eee;
+  background-color: var(--tab-bg);
   border: none;
   cursor: pointer;
   border-radius: 4px;
+  color: var(--text);
+  transition: background-color 0.3s;
+}
+
+.tab:hover {
+  background-color: var(--tab-hover);
 }
 
 .tab.active {
-  background-color: #007bff;
-  color: white;
+  background-color: var(--tab-active);
+  color: var(--tab-active-text);
 }

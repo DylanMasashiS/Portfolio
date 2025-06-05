@@ -1,16 +1,43 @@
+/* funcionarios.css */
+
+/* Tema Light */
+:root {
+  --bg: #f9f9f9;
+  --card: #ffffff;
+  --text: #333333;
+  --shadow: rgba(0, 0, 0, 0.08);
+  --tab: #eeeeee;
+  --tab-hover: #007bff;
+  --tab-active: #007bff;
+  --status-in: #28a745;
+  --status-out: #dc3545;
+}
+
+/* Tema Dark */
+body.dark {
+  --bg: #111111;
+  --card: #1e1e1e;
+  --text: #ffffff;
+  --shadow: rgba(0, 0, 0, 0.5);
+  --tab: #333333;
+  --tab-hover: #007bff;
+  --tab-active: #007bff;
+  --status-in: #28a745;
+  --status-out: #dc3545;
+}
+
 body {
   display: flex;
   min-height: 100vh;
   margin: 0;
-  background-color: #f9f9f9;
+  background-color: var(--bg);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
 }
-
-/* NÃO definir o width do menu aqui, pois já vem do menu.css */
 
 /* Conteúdo principal */
 .conteudo {
-  flex: 1; /* Ocupa todo o espaço disponível que o menu não ocupa */
+  flex: 1;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -22,18 +49,18 @@ body {
 /* Blocos */
 .grafico-container,
 .status-ponto {
-  background-color: #fff;
+  background-color: var(--card);
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px var(--shadow);
 }
 
 /* Título */
 h1 {
   font-size: 32px;
   font-weight: bold;
-  color: #333;
+  color: var(--text);
 }
 
 /* Tabs */
@@ -46,16 +73,17 @@ h1 {
 
 .tab {
   padding: 10px 20px;
-  background-color: #eee;
+  background-color: var(--tab);
   border: none;
   border-radius: 20px;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
+  color: var(--text);
 }
 
 .tab.active,
 .tab:hover {
-  background-color: #007bff;
+  background-color: var(--tab-active);
   color: white;
 }
 
@@ -71,7 +99,7 @@ canvas {
 /* Status */
 .status-ponto h2 {
   margin-bottom: 15px;
-  color: #333;
+  color: var(--text);
 }
 
 .funcionario {
@@ -83,11 +111,11 @@ canvas {
 }
 
 .dentro {
-  background-color: #28a745;
+  background-color: var(--status-in);
 }
 
 .fora {
-  background-color: #dc3545;
+  background-color: var(--status-out);
 }
 
 /* Responsivo */
