@@ -55,13 +55,71 @@ body {
   color: white;
   text-decoration: none;
   padding: 10px 20px;
-  display: block;
+  display: flex;
+  justify-content: center;
   transition: background 0.3s;
 }
 
 .sidebar ul li a:hover {
   background-color: #374151;
   border-radius: 8px;
+}
+
+/* 🔥 Estilo do botão de tema */
+.tema-toggle {
+  text-align: center;
+  margin: 20px 0;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tema-toggle p {
+  color: white;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.tema-toggle button {
+  background-color: #374151;
+  color: white;
+  border: 2px solid #4b5563;
+  border-radius: 30px;
+  padding: 6px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+
+.tema-toggle button:hover {
+  background-color: #4b5563;
+}
+
+/* 🔥 Aparência no modo Dark */
+body.dark .tema-toggle p {
+  color: #f4f4f4;
+}
+
+body.dark .tema-toggle button {
+  background-color: #111827;
+  color: white;
+  border: 2px solid #374151;
+}
+
+/* 🔆 Aparência no modo Light */
+body:not(.dark) .tema-toggle button {
+  background-color: #e5e7eb;
+  color: #111827;
+  border: 2px solid #d1d5db;
+}
+
+body:not(.dark) .tema-toggle button:hover {
+  background-color: #d1d5db;
 }
 
 /* Conteúdo principal */
@@ -73,7 +131,7 @@ body {
 /* Layout Desktop */
 @media (min-width: 769px) {
   .conteudo {
-    margin-left: 0px; /* ← Espaço reservado para a sidebar no desktop */
+    margin-left: 0px;
   }
 }
 

@@ -31,6 +31,14 @@ body, html {
   color: var(--text);
 }
 
+h1 {
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
 .conteudo {
   flex: 1;
   padding: 20px;

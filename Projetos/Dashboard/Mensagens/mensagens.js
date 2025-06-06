@@ -7,20 +7,30 @@ fetch('mensagens.json')
     mensagens.forEach(msg => {
       const div = document.createElement('div');
       div.classList.add('mensagem');
-      div.dataset.id = msg.id;
 
+      // Adiciona classe de cor conforme urgência
+      if (msg.urgente) {
+        div.classList.add('vermelho');
+      } else {
+        div.classList.add('verde');
+      }
+
+      // Conteúdo do bilhete (somente nome e departamento)
       div.innerHTML = `
-        <div class="remetente">${msg.remetente}</div>
-        <div class="hora">${msg.hora}</div>
-        <div class="conteudo">${msg.urgente ? '🚨 Urgente' : 'Mensagem'}</div>
+        <p>${msg.remetente}</p>
+        <p>${msg.departamento}</p>
       `;
 
+      div.dataset.id = msg.id;
+
+      // Evento de clique abre o popup com detalhes
       div.addEventListener('click', () => abrirPopup(msg));
 
       container.appendChild(div);
     });
   });
 
+// Função para abrir o popup
 function abrirPopup(msg) {
   const detalhes = document.getElementById('detalhesMensagem');
   detalhes.innerHTML = `
@@ -33,7 +43,7 @@ function abrirPopup(msg) {
   `;
 
   const popup = document.getElementById('popup');
-  popup.style.display = 'flex'; // Aqui ele abre
+  popup.style.display = 'flex';
 }
 
 // Fecha o popup
@@ -41,9 +51,9 @@ document.getElementById('closePopup').addEventListener('click', () => {
   document.getElementById('popup').style.display = 'none';
 });
 
+// Fecha popup clicando fora
 window.addEventListener('click', (e) => {
   if (e.target.id === 'popup') {
     document.getElementById('popup').style.display = 'none';
   }
 });
-

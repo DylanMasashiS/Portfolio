@@ -1,6 +1,6 @@
-/* vendas.css */
-
-/* Tema Light */
+/* ======================= */
+/* 🎨 Tema Light (Padrão) */
+/* ======================= */
 :root {
   --bg: #f4f4f4;
   --card: #ffffff;
@@ -12,7 +12,9 @@
   --tab-active-text: #ffffff;
 }
 
-/* Tema Dark */
+/* ======================= */
+/* 🌙 Tema Dark           */
+/* ======================= */
 body.dark {
   --bg: #111111;
   --card: #1e1e1e;
@@ -24,30 +26,72 @@ body.dark {
   --tab-active-text: #ffffff;
 }
 
+/* ======================= */
+/* Layout Base            */
+/* ======================= */
 body {
+  display: flex;
+  min-height: 100vh;
   background-color: var(--bg);
   color: var(--text);
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
-  padding: 20px;
   box-sizing: border-box;
 }
 
-/* Gráfico */
-.grafico {
-  width: 100%;
-  height: 400px;
-  background-color: var(--card);
-  border-radius: 10px;
+/* Menu Lateral */
+.menu {
+  width: 250px;
+  background-color: #0d1a2d;
+  color: #fff;
   padding: 20px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Conteúdo Principal */
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Header: título + botões */
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centraliza horizontalmente */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.header h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 16px; /* espaço entre título e botões */
+  color: var(--text);
+}
+
+h1 {
+  text-align: center;
+  width: 100%;
+  font-size: 35px;
+  margin-bottom: 16px;
+  color: var(--text);
 }
 
 /* Tabs */
 .tabs {
   display: flex;
   gap: 10px;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center; /* centraliza os botões */
+  margin-bottom: 20px; /* espaço entre botões e gráfico */
 }
 
 .tab {
@@ -67,4 +111,18 @@ body {
 .tab.active {
   background-color: var(--tab-active);
   color: var(--tab-active-text);
+}
+
+/* Gráfico com altura dinâmica */
+.grafico {
+  flex: 1;
+  min-height: 400px;
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

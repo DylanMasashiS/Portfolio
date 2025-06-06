@@ -67,8 +67,10 @@ body {
 
 /* Título */
 h1 {
-  margin-bottom: 20px;
-  font-size: 20px;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 16px;
   color: var(--text);
 }
 

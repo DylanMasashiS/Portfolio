@@ -58,10 +58,13 @@ body {
 
 /* Título */
 h1 {
-  font-size: 32px;
-  font-weight: bold;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+  margin-bottom: 16px;
   color: var(--text);
 }
+
 
 /* Tabs */
 .tabs {
